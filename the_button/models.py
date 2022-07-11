@@ -13,7 +13,7 @@ from otree.api import (
 from otree.api import *
 import random
 
-from django import forms
+#from django import forms
 
 doc = """
 This is the button game. 
@@ -46,11 +46,13 @@ class Subsession(BaseSubsession):
             player.participant.vars["total_payoff"] = ""
             player.participant.vars["payoff2_self"] = ""
             player.participant.vars["payoff2"] = ""
+            player.participant.vars["payoff3"] = ""
             player.participant.vars["payoff2o"] = ""
             player.participant.vars["payoff2_charity"] = ""
             player.participant.vars["payoff2_self_danat"] = ""
             player.participant.vars["payoff2_charity_danat"] = ""
             player.participant.vars["bonus"] = ""
+            player.participant.vars["danat"] = ""
         #    player.participant.vars["too_long"] = False
             player.selected= random.choices(Constants.numberList, weights=(50,50), k=1)[0] #10,90
             self.session.vars["selected"] = player.selected
@@ -69,9 +71,10 @@ class Player(BasePlayer):
     store_time = models.FloatField()  # for the timer
     payoff2_self = models.IntegerField()  # payoff task 2 (button)
     payoff2 = models.IntegerField()
+    payoff3 = models.IntegerField()
     payoff2o = models.IntegerField()
     payoff2_charity = models.IntegerField()  # payoff task 2 (button)
-    danat = models.StringField(blank=True)  # whether participant takes selfish choice in Dana timed task
+    danat = models.StringField(blank=False)  # whether participant takes selfish choice in Dana timed task
     payoff2_self_danat = models.IntegerField()  # payoff dana_timed
     payoff2_charity_danat = models.IntegerField()  # payoff dana_timed
     total_payoff = models.FloatField()
@@ -97,27 +100,24 @@ class Player(BasePlayer):
 
     def set_payoffs(self):
             #bonus contingent on treatments
-            if self.treatment== "ButtonA":
-                if self.button==1: #presing yields selfish option b
+            if self.treatment == "ButtonA":
+                #if self.button==1: #presing yields selfish option b
+                #if self.session.vars["selected"] == 1:
+                if self.store_time != 0:
                     self.participant.vars["payoff2_self"] = Constants.optionB[0] #10
                     self.participant.vars["payoff2_charity"] = Constants.optionB[1] #0
-                else: #not presing yields prosocial option a
+                    self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
+                    self.payoff2_charity = self.participant.vars["payoff2_charity"]
+                 #       self.payoff2 = self.participant.vars["payoff2_self"]
+                  #      self.payoff2o = self.participant.vars["payoff2_charity"]
+                elif self.store_time == 0:
                     self.participant.vars["payoff2_self"] = Constants.optionA[0] #5
                     self.participant.vars["payoff2_charity"] = Constants.optionA[1] #15
-                self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
-                self.payoff2_charity = self.participant.vars["payoff2_charity"]
-                if self.session.vars["selected"] == 1:
-                    self.payoff2 = self.participant.vars["payoff2_self"]
-                    self.participant.vars["payoff2"]=self.payoff2
-                    self.payoff2o = self.participant.vars["payoff2_charity"]
-                    self.participant.vars["payoff2o"]=self.payoff2o
-                else:
-                    self.payoff2 = 0
-                    self.payoff2o = 0
-
-                    #elif self.session.vars["treatment"] == "ButtonB":
+                    self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
+                    self.payoff2_charity = self.participant.vars["payoff2_charity"]
             elif self.treatment == "ButtonB":
-                if self.button==1: #pressing the button yields the prosocial action
+                #if self.button==1: #pressing the button yields the prosocial action
+                if self.store_time != 0:
                     self.participant.vars["payoff2_self"] = Constants.optionA[0]  #5
                     self.participant.vars["payoff2_charity"] = Constants.optionA[1] #15
                 else: #not pressing the button yields the selfish action
@@ -125,45 +125,109 @@ class Player(BasePlayer):
                     self.participant.vars["payoff2_charity"] = Constants.optionB[1] #0
                 self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
                 self.payoff2_charity = self.participant.vars["payoff2_charity"]
-                if self.session.vars["selected"] == 1 :
-                    self.payoff2 = self.participant.vars["payoff2_self"]
-                    self.participant.vars["payoff2"] = self.payoff2
-                    self.payoff2o = self.participant.vars["payoff2_charity"]
-                    self.participant.vars["payoff2o"] = self.payoff2o
-                else:
-                    self.payoff2 = 0
-                    self.payoff2o = 0
             elif self.session.vars["treatment"] == "NoButton":
                 if self.danat == "A":
+                    self.player.participant.vars["danat"] == "A"
                     self.participant.vars["payoff2_self_danat"] = Constants.dana2A_self
-                    self.participant.vars["payoff2_charity_danat"] =  Constants.dana2A_other
+                    self.participant.vars["payoff2_charity_danat"] = Constants.dana2A_other
                 elif self.danat == "B":
+                    self.player.participant.vars["danat"] == "B"
                     self.participant.vars["payoff2_self_danat"] = Constants.dana2B_self # 10
                     self.participant.vars["payoff2_charity_danat"] = Constants.dana2B_other# 10
             # to store for next app (button task + final payoffs)
                 self.payoff2_self_danat = self.participant.vars["payoff2_self_danat"]  # to store to the oTree database
-                self.payoff2_charity_danat= self.participant.vars["payoff2_charity_danat"]
-                if self.session.vars["selected"] == 1 :
-                    self.payoff2 = self.participant.vars["payoff2_self"]
-                    self.participant.vars["payoff2"] = self.payoff2
-                    self.payoff2o = self.participant.vars["payoff2_charity_danat"]
-                    self.participant.vars["payoff2o"] = self.payoff2o
-                else:
-                    self.payoff2 = 0
-                    self.payoff2o = 0
+                self.payoff2_charity_danat = self.participant.vars["payoff2_charity_danat"]
+                self.danat=self.player.participant.vars["danat"]
+               # if self.session.vars["selected"] == 1:
+                #    self.payoff2 = self.participant.vars["payoff2_self_danat"]
+                 #   self.participant.vars["payoff2"] = self.payoff2
+                 ##   self.payoff2o = self.participant.vars["payoff2_charity_danat"]
+                   # self.participant.vars["payoff2o"] = self.payoff2o
+                #else:
+                 #   self.payoff2 = 0
+                  #  self.payoff2o = 0
 
     def set_bonus(self):
         if self.q_number == 100:
             self.participant.vars["bonus"] = 0.5
             self.bonus = self.participant.vars["bonus"]
-        else:
+        elif self.q_number != 100:
             self.bonus = 0
 
     def total_payoff(self):
-        if self.session.vars["selected"] == 1:
-            self.participant.vars["total_payoff"] = cu(self.participant.vars["payoff_svo"]) + cu(self.participant.vars["bonus"])+ cu(self.payoff2)
+        if self.selected == 1:
+            self.total_payoff = cu(self.participant.vars["bonus"] + self.payoff2_self)
+            self.participant.vars["total_payoff"] = self.total_payoff
+            # + self.participant.vars["payoff_svo"])
             self.total_payoff = self.participant.vars["total_payoff"]
-        elif self.session.vars["selected"] == 0:
-            self.participant.vars["total_payoff"] = cu(self.participant.vars["payoff_svo"]) +cu(self.participant.vars["bonus"]) # self.player.participant.vars["payoff_svo"]
-            self.total_payoff = self.participant.vars["total_payoff"]
+        elif self.selected == 0:
+            self.total_payoff = cu(self.participant.vars["bonus"]) # + self.participant.vars["payoff_svo"])
+            self.participant.vars["total_payoff"] = self.total_payoff
+
+    def payoff3(self):
+        if self.selected==1:
+            if self.treatment=="ButtonA":
+                if self.store_time !=0 :
+                    if self.q_number == 100:
+                        self.payoff3 = 10.5
+                        self.participant.vars["payoff3"] = self.payoff3 +float(self.participant.vars["payoff_svo"])
+                    else:
+                        self.payoff3=10
+                        self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                else:
+                    if self.q_number == 100:
+                        self.payoff3 = 5.5
+                        self.participant.vars["payoff3"] = self.payoff3+float(self.participant.vars["payoff_svo"])
+                    else:
+                        self.payoff3=5
+                        self.participant.vars["payoff3"] = self.payoff3+float(self.participant.vars["payoff_svo"])
+            elif self.treatment == "ButtonB":
+                if self.store_time!=0:
+                    if self.q_number == 100:
+                        self.payoff3 = 5.5
+                        self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                    else:
+                        self.payoff3=5
+                        self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                else:
+                    if self.q_number == 100:
+                        self.payoff3 = 10.5
+                        self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                    else:
+                        self.payoff3=10
+                        self.participant.vars["payoff3"] = self.payoff3+float(self.participant.vars["payoff_svo"])
+        elif self.selected == 0:
+            if self.treatment=="ButtonA":
+                if self.store_time !=0 :
+                    if self.q_number == 100:
+                        self.payoff3 = 0.5
+                        self.participant.vars["payoff3"] = self.payoff3+float(self.participant.vars["payoff_svo"])
+                    else:
+                        self.payoff3=0
+                        self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                else:
+                    if self.q_number == 100:
+                        self.payoff3 = 0.5
+                        self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                    else:
+                        self.payoff3=0
+                        self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+            elif self.treatment == "ButtonB":
+                if self.store_time!=0:
+                    if self.q_number == 100:
+                        self.payoff3 = 0.5
+                        self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                    else:
+                        self.payoff3=0
+                        self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                else:
+                    if self.q_number == 100:
+                        self.payoff3 = 0.5
+                        self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                    else:
+                        self.payoff3=0
+                        self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+
+
+
 

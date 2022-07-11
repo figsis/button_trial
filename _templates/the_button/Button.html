@@ -45,7 +45,7 @@
         setTimeout(function() {$(".content").fadeOut(1500);}, 3000)
         setTimeout(function() {$(".content1").fadeIn(1500);}, 30000); //30 seconds
         setTimeout(function() {$(".content1").fadeOut(1500);},32000); //lasts for 2 seconds
-         setTimeout(function() {$(".content2").fadeIn(1500);},110000);  //1 min 50 seconds
+        setTimeout(function() {$(".content2").fadeIn(1500);},110000);  //1 min 50 seconds
         setTimeout(function() {$(".content2").fadeOut(1500);},112000); //lasts for 2 seconds
         setTimeout(function() {$(".content3").fadeIn(1500);},150000);   //2 min 30 seconds
         setTimeout(function() {$(".content3").fadeOut(1500);},152000);  //lasts for 2 seconds
@@ -70,7 +70,7 @@
  <br><br>
  <div class=“parent”>
   <div class="col-12">
-      <button name="button" value="True" class="btn btn--action" onclick="storeTime()"><br>
+      <button name="button" value="True" class="btn btn--action" onclick="storeTime();this.disabled=true"><br>
         <br><p> If you click: <br><br><br> </p>
           <h4>You: {{ Constants.optionB0}} , Charity: {{ Constants.optionB1}} <br><br><br></h4>
             <br> </button></div>
@@ -90,7 +90,7 @@
  <br><br>
 <div class=“parent”>
         <div class="col-12">
-             <button name="button" value="True" class="btn btn--action" onclick="storeTime()"><br>
+             <button name="button" value="True" class="btn btn--action" onclick="storeTime();this.disabled=true"><br>
                 <br><p> If you click: <br><br><br> </p>
                 <h4>You: {{ Constants.optionA0}} , Charity: {{ Constants.optionA1}} <br><br><br></h4>
                  <br> </button></div>

@@ -36,25 +36,18 @@
 
  <br><br>
 
-  <h5>You clicked the button. Please wait until the page submits.</h5>
-
+     {{if player.danat == "A"}}
+  <h5>You clicked Option A. Please wait until the page submits.</h5>
+     {{elif player.danat == "B"}}}
+       <h5>You clicked Option B. Please wait until the page submits.</h5>
+     {{endif}}
  <br><br>
 
 
-        <div class="col-12">
-            <button name="button" value="True" class="btn btn--action" disabled><br>
-          <br><p> You pressed the button.</p><br><br>
-          <h4><br></h4>
-          <br><br><br></button></div>
-
-
 
 </div>
 
 </div>
-
-
-
 
 
 {% endblock %}

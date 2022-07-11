@@ -2,16 +2,16 @@ from os import environ
 
 
 SESSION_CONFIGS = [
-dict(   name='Button',
-        app_sequence=['dat','svo','dana','the_button'],
-        num_demo_participants=1,
-		select_items= 'PRIMARY',
-		items_in_random_order= False,
-		scale= 0.01 ,
-		slider_init= 'LEFT',
-		random_payoff= 'RAND',
-		precision= 'INTEGERS',
-		doc =  '' ,),
+	dict(name='Button',
+		 app_sequence=['svo','dana','the_button'], #'dat',
+		 num_demo_participants=100,
+		 select_items='PRIMARY',
+		 items_in_random_order=False,
+		 scale=0.01,
+		 slider_init='LEFT',
+		 random_payoff='RAND',
+		 precision='INTEGERS',
+		 doc=''),
 ]
 
 #DATABASES = {

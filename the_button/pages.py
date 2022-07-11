@@ -42,7 +42,20 @@ class ButtonClicked(Page):
 
     def is_displayed(self):
         player = self.player
-        return player.treatment == "ButtonA" or player.treatment == "ButtonB"
+        return player.treatment == "ButtonA" and player.button==1 or player.treatment == "ButtonB" and player.button==1
+
+
+class danat_clicked(Page):
+    form_model = 'player'
+    form_fields = ['danat']
+
+    def get_timeout_seconds(self):
+        return self.player.store_time
+
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "NoButton"
+
 
 
 
@@ -71,9 +84,11 @@ class Payment(Page):
             paid_slider = self.player.participant.vars["paid_slider"],
             selected= self.session.vars["selected"],
             payoff2=self.participant.vars["payoff2"],
+            payoff2_self=self.participant.vars["payoff2_self"],
             payoff2o=self.participant.vars["payoff2o"] ,
             bonus= self.player.bonus,
-            total_payoff = self.player.participant.vars["total_payoff"]
+            total_payoff = self.participant.vars["total_payoff"],
+            payoff3= self.participant.vars["payoff3"],
 
         )
 
@@ -124,7 +139,8 @@ class Survey(Page):
     def before_next_page(self):
         self.player.set_payoffs()
         self.player.set_bonus()
-        self.player.total_payoff()
+       # self.player.total_payoff()
+        self.player.payoff3()
 
 class Survey_danat(Page):
     form_model = 'player'
@@ -194,8 +210,9 @@ page_sequence = [SummaryTask1_,
                  SummaryTask1_danat,
                  Instructions_Attention,
                  Button,
-                 ButtonClicked,
+                 #ButtonClicked,
                  task_timed,
+                 #danat_clicked,
                  Attention_Survey,
                  Survey,
                  Survey_danat,
