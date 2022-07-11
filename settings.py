@@ -3,7 +3,7 @@ from os import environ
 
 SESSION_CONFIGS = [
 	dict(name='Button',
-		 app_sequence=['svo','dana','the_button'], #'dat',
+		 app_sequence=['dat','svo','dana','the_button'],
 		 num_demo_participants=100,
 		 select_items='PRIMARY',
 		 items_in_random_order=False,
