@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block styles %}
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="card">
+  <div class="card-body">
+
+
+<p> This is almost the end of Task 3. You will now have the opportunity to think more about your decision in this task and possibly alter your final payoff.
+
+    In the next screen you will face a red button. If you press it, then you will receive 10&#36 and the charity will receive &#360.
+    If you do not press it, the charity will receive 15&#36 and you will receive 5&#36. </p>
+
+     <p>This decision will override the previous one and thus determine your final payoff for this task. </p>
+
+
+      <p> Press "Next" to think more on Task 3. </p>
+
+
+  </div></div>
+
+    <br>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load i18n %}
+
+{% block title %}
+    Instructions Task 2
+{% endblock %}
+
+{% block content %}
+
+
+<div class="card"><div class="card-body">
+<p> In this task you will be making <b>six</b>
+decisions about allocating resources between you and the Red Cross. All of your choices are completely <b>confidential</b>. </p>
+  <p>Red Cross prevents and alleviates human suffering in the face of emergencies by mobilizing
+          the power of volunteers and the generosity of donors.
+          You can learn more about Red Cross
+          <u><a href = "https://www.redcross.org.uk/" target="_blank">here</a></u>. </p>
+    <p>For each of the following questions, please indicate the distribution you prefer most by marking the respective position along the midline. You can only make one mark for each question.</p>
+
+    <p>Your decisions will yield money for both yourself and the Red Cross. In the example below, a person has chosen to distribute money
+so that he/she receives <b>2.55&#36</b>, while the Red Cross receives <b>1.50&#36</b>.</p>    <br>
+
+
+<div class="mx-auto" style="width: 500px;">
+<img class="col-md-12 float-sm-end mb-12 ms-md-12" style="max-width:560px" src="{% static 'Example-slider2.png' %}"/>
+</div>    <br>
+    <br>
+
+ <div class="clearfix">
+     </div>
+
+
+ <div class="clearfix">
+     </div>
+
+ <div class="clearfix">
+     </div>
+
+ <div class="clearfix">
+     </div>
+
+
+    <br>
+<p>There are no right or wrong answers, this is all about personal preferences.   </p>
+
+</div></div> <br>
+
+    {% next_button %}
+
+{% endblock %}
+
+

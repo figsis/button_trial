@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block content %}
+
+<div class="card"><div class="card-body">
+<p>Welcome! You are participating in a study funded by the University of Amsterdam.</p>
+<p>The goal of this study is to assess how people make decisions.
+    You receive <b>{{ Constants.participation_fee }}&#8364</b>  as a payment for participation.
+    Further, you can earn extra money as a bonus.
+    Your bonus depends on your decisions.
+
+</p><p>
+    In addition, the experimenters have prepared a fund to donate to the Red Cross at the end of the experiment.
+    Your decisions may affect the size of this fund, and can either increase or decrease
+    total donations to the Red Cross. These donations are real, as our ethical approval does
+    not allow us to deceive participants.
+    A proof of the charity donation will be available upon completion of the experiment.
+
+
+</p>
+
+
+
+
+    <p>Remember that if you do not complete the study, you will not earn anything.
+        If you have questions, you can contact the researcher</a>.
+        Press "Next" to continue. </p>
+
+</div></div>
+
+<br>
+    {% next_button %}
+{% endblock %}
+
+
+

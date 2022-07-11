@@ -1,0 +1,73 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load otree %}
+
+{% block title %}
+    Task 2
+{% endblock %}
+
+{% block styles %}
+    {% include 'snippets/Button_style.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+        <script>
+        let customTimerEle = document.getElementById('mins-left');
+        let customTimer2 = document.getElementById('secs-left');
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                customTimerEle.innerText = event.offset.totalMinutes;
+                customTimer2.innerText = event.offset.totalSeconds - event.offset.totalMinutes*60;
+
+            });
+        });
+
+        setTimeout(function() {$(".content").fadeOut(1500);}, 3000)
+        setTimeout(function() {$(".content1").fadeIn(1500);}, 30000); //30 seconds
+        setTimeout(function() {$(".content1").fadeOut(1500);},32000); //lasts for 2 seconds
+         setTimeout(function() {$(".content2").fadeIn(1500);},110000);  //1 min 50 seconds
+        setTimeout(function() {$(".content2").fadeOut(1500);},112000); //lasts for 2 seconds
+        setTimeout(function() {$(".content3").fadeIn(1500);},150000);   //2 min 30 seconds
+        setTimeout(function() {$(".content3").fadeOut(1500);},152000);  //lasts for 2 seconds
+        setTimeout(function() {$(".content4").fadeIn(1500);},170000);  //2 min 50 seconds
+        setTimeout(function() {$(".content4").fadeOut(1500);},172000); //lasts for 2 seconds
+
+
+    </script>
+{% endblock %}
+
+{% block content %}
+ <div class="alert alert-secondary" role="alert">
+  This page will automatically submit in <b>
+   <span id="mins-left"></span> minutes and <span id="secs-left"></span> seconds</b>.
+
+ <br><br>
+
+  <h5>You clicked the button. Please wait until the page submits.</h5>
+
+ <br><br>
+
+<div class=“parent”>
+        <div class="col-12">
+            <button name="button" value="True" class="btn btn--action" disabled><br>
+          <br><p> You pressed the button.</p><br><br>
+          <h4><br></h4>
+          <br><br><br></button></div>
+
+            <div class=“child”><div class="content1" style="display:none; position:absolute;top: 400px; left: 100px; right: 0px; bottom: 0px;font-size:50px;color:red;font-family: Fantasy;">1</div>  </div>
+            <div class=“child”><div class="content2" style="display:none;position:absolute;top: 300px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:50px;font-family: Fantasy;"> 6 </div></div>
+            <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:50px; font-family: Fantasy ; "> 10 </div></div>
+            <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:50px; font-family: Fantasy ; "> 100 </div></div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+{% endblock %}

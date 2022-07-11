@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %} Final Payoff {% endblock %}
+
+{% block content %}
+    <div class="alert alert-info" role="alert">
+        We are almost done with the experiment, thank you for participating! Here is a summary of the final payoffs:
+    <br><br>
+
+  {{if player.selected == 0}}
+<b>Task 2 </b>: Slider {{paid_slider}} has been selected, you get <b>{{payoff_svo}}</b> and the Red Cross gets <b>{{payoff_svo_other}}</b>.<br>
+   <b>Task 3 </b>: You have not been selected for payment.<br>
+        <b>Bonus</b> :{{if bonus == 0}}  You did not input the highest number. Pay more attention next time! No bonus for you.
+       {{elif bonus != 0}} You inputed the highest number. You get a bonus of {{bonus}}
+        {% endif %}
+  {{elif player.selected == 1}}
+    <b>Task 2 </b>: Slider {{paid_slider}} has been selected, you get {{payoff_svo}} and the Red Cross gets {{payoff_svo_other}}.<br>
+    <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2}} and the Red Cross get {{payoff2o}}.<br>
+        <b>Bonus</b> :{{if bonus == 0}}  You did not input the highest number. Pay more attention next time! No bonus for you.
+       {{elif bonus != 0}} You inputed the highest number. You get a bonus of {{bonus}}
+{% endif %}
+{% endif %}
+</div><br>
+
+ <div class="alert alert-light" role="alert">
+     Your total payoff is then: {{total_payoff}}
+ </div>
+
+{% next_button %}
+
+{% endblock %}
+{% block styles %}
+    <style>
+
+        .col-centered {
+            display:inline-block;
+            float:none;
+            /* reset the text-align */
+        {#text-align:left;#}
+            /* inline-block space fix */
+            margin-right:-4px;
+            text-align: center;
+        }
+
+    </style>
+{% endblock %}
+

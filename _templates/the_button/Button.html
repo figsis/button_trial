@@ -1,0 +1,113 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load otree %}
+
+{% block title %}
+    Task 4
+{% endblock %}
+
+{% block styles %}
+
+        {% include 'snippets/Button_style.html' %}
+
+    <style>
+    .btn--action:hover, .btn--action:focus {
+        background-color: indianred;
+        transform: translateY(2px);
+        }
+    .btn--action{
+        cursor: pointer;
+    }
+    </style>
+
+{% endblock %}
+
+{% block scripts %}
+        <script>
+        let customTimerEle = document.getElementById('mins-left');
+        let customTimer2 = document.getElementById('secs-left');
+        let customTimer = document.getElementById('store_time');
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                customTimerEle.innerText = event.offset.totalMinutes;
+                customTimer2.innerText = event.offset.totalSeconds - event.offset.totalMinutes*60;
+                customTimer.innerText = event.offset.totalSeconds;
+
+            });
+        });
+
+        function storeTime() {
+            console.log("hallo", customTimer.innerText);
+            document.getElementById('store_time').value = customTimer.innerText;
+        }
+
+        setTimeout(function() {$(".content").fadeOut(1500);}, 3000)
+        setTimeout(function() {$(".content1").fadeIn(1500);}, 30000); //30 seconds
+        setTimeout(function() {$(".content1").fadeOut(1500);},32000); //lasts for 2 seconds
+         setTimeout(function() {$(".content2").fadeIn(1500);},110000);  //1 min 50 seconds
+        setTimeout(function() {$(".content2").fadeOut(1500);},112000); //lasts for 2 seconds
+        setTimeout(function() {$(".content3").fadeIn(1500);},150000);   //2 min 30 seconds
+        setTimeout(function() {$(".content3").fadeOut(1500);},152000);  //lasts for 2 seconds
+        setTimeout(function() {$(".content4").fadeIn(1500);},170000);  //2 min 50 seconds
+        setTimeout(function() {$(".content4").fadeOut(1500);},172000); //lasts for 2 seconds
+
+    </script>
+{% endblock %}
+
+{% block content %}
+    <input type="hidden" name="store_time" id="store_time" />
+
+
+ <div class="alert alert-secondary" role="alert">
+
+  This page will automatically submit in <b>
+   <span id="mins-left"></span> minutes and <span id="secs-left"></span> seconds</b>. <br>
+<small>(Clicking the button cannot be reversed. Clicking the button will not save you time. </small><br>
+
+     {{if player.treatment == "ButtonA"}} <small> If you do not click, your payoff will be 5 and the charity will get 15 .)</small> <br><br>
+
+ <br><br>
+ <div class=“parent”>
+  <div class="col-12">
+      <button name="button" value="True" class="btn btn--action" onclick="storeTime()"><br>
+        <br><p> If you click: <br><br><br> </p>
+          <h4>You: {{ Constants.optionB0}} , Charity: {{ Constants.optionB1}} <br><br><br></h4>
+            <br> </button></div>
+
+            <div class=“child”><div class="content1" style="display:none; position:absolute;top: 400px; left: 100px; right: 0px; bottom: 0px;font-size:50px;color:red;font-family: Fantasy;">1</div>  </div>
+            <div class=“child”><div class="content2" style="display:none;position:absolute;top: 300px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:50px;font-family: Fantasy;"> 6 </div></div>
+            <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:50px; font-family: Fantasy ; "> 10 </div></div>
+            <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:50px; font-family: Fantasy ; "> 100 </div></div>
+
+</div>
+
+{{elif player.treatment == "ButtonB"}}
+
+       <small> If you do not click, your payoff will be {{ Constants.optionB0}}  and the charity will get {{ Constants.optionB1}}.)</small> <br><br>
+
+
+ <br><br>
+<div class=“parent”>
+        <div class="col-12">
+             <button name="button" value="True" class="btn btn--action" onclick="storeTime()"><br>
+                <br><p> If you click: <br><br><br> </p>
+                <h4>You: {{ Constants.optionA0}} , Charity: {{ Constants.optionA1}} <br><br><br></h4>
+                 <br> </button></div>
+
+            <div class=“child”><div class="content1" style="display:none; position:absolute;top: 400px; left: 100px; right: 0px; bottom: 0px;font-size:50px;color:red;font-family: Fantasy;">1</div>  </div>
+            <div class=“child”><div class="content2" style="display:none;position:absolute;top: 300px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:50px;font-family: Fantasy;"> 6 </div></div>
+            <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:50px; font-family: Fantasy ; "> 10 </div></div>
+            <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:50px; font-family: Fantasy ; "> 100 </div></div>
+
+
+</div>
+     {% endif %}
+
+ <br><br><br>
+
+
+</div>
+ {{ formfield_errors 'store_time' }}
+
+{% endblock %}

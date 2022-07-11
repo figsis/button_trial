@@ -1,0 +1,81 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block title %}
+Task 4
+{% endblock %}
+
+{% block styles %}
+
+{% endblock %}
+
+
+{% block scripts %}
+        <script>
+        let customTimerEle = document.getElementById('mins-left');
+        let customTimer2 = document.getElementById('secs-left');
+        let customTimer = document.getElementById('store_time');
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                customTimerEle.innerText = event.offset.totalMinutes;
+                customTimer2.innerText = event.offset.totalSeconds - event.offset.totalMinutes*60;
+                customTimer.innerText = event.offset.totalSeconds;
+
+            });
+        });
+
+        function storeTime() {
+            console.log("hallo", customTimer.innerText);
+            document.getElementById('store_time').value = customTimer.innerText;
+        }
+
+
+        setTimeout(function() {$(".content").fadeOut(1500);}, 3000)
+        setTimeout(function() {$(".content1").fadeIn(1500);}, 30000); //30 seconds
+        setTimeout(function() {$(".content1").fadeOut(1500);},32000); //lasts for 2 seconds
+        setTimeout(function() {$(".content2").fadeIn(1500);},110000);  //1 min 50 seconds
+        setTimeout(function() {$(".content2").fadeOut(1500);},112000); //lasts for 2 seconds
+        setTimeout(function() {$(".content3").fadeIn(1500);},150000);   //2 min 30 seconds
+        setTimeout(function() {$(".content3").fadeOut(1500);},152000);  //lasts for 2 seconds
+        setTimeout(function() {$(".content4").fadeIn(1500);},170000);  //2 min 50 seconds
+        setTimeout(function() {$(".content4").fadeOut(1500);},172000); //lasts for 2 seconds
+
+    </script>
+{% endblock %}
+{% block content %}
+    <input type="hidden" name="store_time" id="store_time" />
+ <div class="alert alert-secondary" role="alert">
+  This page will automatically submit in <b>
+
+   <span id="mins-left"></span> minutes and <span id="secs-left"></span> seconds</b>. <br>
+
+    <div class="card">
+        <div class="card-body">
+
+     <div class=“parent”>
+         <div class="mx-auto" style="width: 200px;"> <img class="col-md-12 float-sm-end mb-12 ms-md-12" style="max-width:250px" src="{% static '10.png' %}"/> </div>
+            <div class=“child”><div class="content1" style="display:none; position:absolute;top: 400px; left: 100px; right: 0px; bottom: 0px;font-size:50px;color:red;font-family: Fantasy;">1</div>  </div>
+            <div class=“child”><div class="content2" style="display:none;position:absolute;top: 300px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:50px;font-family: Fantasy;"> 6 </div></div>
+            <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:50px; font-family: Fantasy ; "> 10 </div></div>
+            <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:50px; font-family: Fantasy ; "> 100 </div></div>
+     </div>
+
+    <div class="clearfix">
+
+    </div>
+
+
+      <p> Please make your choice here:</p>
+
+
+      <button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime()">Select option A</button>
+      <button name="danat_" id="danat_" value="B" class="btn btn-outline-primary" onclick="storeTime()">Select option B</button>
+
+
+
+   </div>
+    </div>
+ </div>
+{% endblock %}

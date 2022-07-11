@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block title %}
+
+{% endblock %}
+
+
+
+
+{% block content %}
+    <div class="card">
+  <div class="card-body">
+
+
+<p> This is almost the end of Task 3. You will now have the opportunity to think more about your decision in this task and possibly alter your final payoff.
+
+
+     <p>This decision will override the previous one and thus determine the final payoffs - for you and the Red Cross - in Task 3. You have <b> 5 minutes</b> to think more about your decision. </p>
+
+   <p> Attention is very important for this task and thus we have set an attention check which we will explain next. </p>
+
+      <p> Press "Next" to reconsider Task 3. </p>
+
+
+  </div></div>
+
+    <br>
+
+    {% next_button %}
+
+{% endblock %}

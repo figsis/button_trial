@@ -1,0 +1,35 @@
+{% extends "global/Base.html" %}
+{% load i18n %}
+{% load staticfiles otree %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="center" role="alert">
+
+ <p> You have reached the end of Task 2. </p>
+     <p> Press the Next button to proceed to Task 3. </p>
+ <! --Slider {{paid_slider}} was selected for payment. Your profit is therefore: {{ payoff_svo }}  -->
+
+                </div>
+
+
+
+    {% next_button %}
+
+{% endblock %}
+
+
+{% block styles %}
+    <style>
+    .center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    }
+
+    </style>
+{% endblock %}

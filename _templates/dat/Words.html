@@ -1,0 +1,40 @@
+{% extends "global/Base.html" %}
+{% load i18n %}
+{% load staticfiles otree %}
+
+
+
+
+
+
+
+{% block title %}
+   Instructions Task 1
+{% endblock %}
+
+{% block content %}
+
+ <p>Please enter 10 words that are as different from each other as possible, in all meanings and uses of the words.</p>
+
+    <p>Follow the following rules so that we can validate this task and compensate you for it:</p>
+
+    <ul>
+  <li>Only single words in English.</li>
+  <li>Only nouns (e.g., things, objects, concepts).</li>
+  <li>No proper nouns (e.g., no specific people or places).</li>
+        <li>No specialised vocabulary (e.g., no technical terms).</li>
+
+      <li>Think of the words on your own (e.g., do not just look at objects in your surroundings).</li>
+</ul>
+
+
+
+
+<div class="card"><div class="card-body">
+    {% formfields %}
+</div>
+</div>
+
+    {% next_button %}
+
+{% endblock %}
