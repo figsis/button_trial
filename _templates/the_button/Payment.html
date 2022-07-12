@@ -9,24 +9,24 @@
     <br><br>
 
   {% if player.selected == 0%}
-        <b>Task 2 </b>: Slider  has been selected, you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
    <b>Task 3 </b>: You have not been selected for payment.<br>
-        <b>Bonus</b> :{%if player.bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
-       {%elif player.bonus != 0%} You inputed the highest number. You get a bonus of {% formfield player.bonus %}
+        <b>Bonus</b> :{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
+       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {% formfield player.bonus %}
         {% endif %}
   {%elif player.selected == 1%}
-        <b>Task 2 </b>: Slider   has been selected, you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 2 </b>: From the randomnly selected slider, you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
         {% if player.treatment == "ButtonA" and player.treatment == "ButtonB"%} <b>Task 3 </b>: You have been selected for payment. Thus, you get {% formfield player.payoff2_self %} and the Red Cross get {% formfield player.payoff2_charity %}.<br>
          {% elif player.treatment == "NoButton" %} <b>Task 3 </b>: You have been selected for payment. Thus, you get {% formfield payoff2_self_danat %} and the Red Cross get {% formfield player.payoff2_charity_danat%}.<br>
        {% endif %}
-        <b>Bonus</b> :{% if player.bonus == 0 %}  You did not input the highest number. Pay more attention next time! No bonus for you.
-       {% elif player.bonus != 0 %} You inputed the highest number. You get a bonus of {% formfield player.bonus %}
+        <b>Bonus</b> :{% if bonus == 0 %}  You did not input the highest number. Pay more attention next time! No bonus for you.
+       {% elif bonus != 0 %} You inputed the highest number. You get a bonus of {% formfield player.bonus %}
 {% endif %}
 {% endif %}
 </div><br>
 
  <div class="alert alert-light" role="alert">
-     Your total payoff is then: {% formfield player.payoff3 %}
+     Your total payoff is then: {% formfield payoff3 %}
  </div>
 
 {% next_button %}
