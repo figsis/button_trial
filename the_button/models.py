@@ -70,14 +70,14 @@ class Player(BasePlayer):
     bonus = models.FloatField()
     store_time = models.FloatField()  # for the timer
     payoff2_self = models.IntegerField()  # payoff task 2 (button)
-    payoff2 = models.IntegerField()
+    # payoff2 = models.IntegerField()
     payoff3 = models.IntegerField()
-    payoff2o = models.IntegerField()
+    #payoff2o = models.IntegerField()
     payoff2_charity = models.IntegerField()  # payoff task 2 (button)
     danat = models.StringField(blank=False)  # whether participant takes selfish choice in Dana timed task
     payoff2_self_danat = models.IntegerField()  # payoff dana_timed
     payoff2_charity_danat = models.IntegerField()  # payoff dana_timed
-    total_payoff = models.FloatField()
+    #total_payoff = models.FloatField()
     # How strong was the temptation to press the button?
     q0 = models.IntegerField(label='How strong was the temptation to press the button? 0: not tempting at al. 10: very tempting. ', choices=[0,1, 2, 3, 4, 5, 6, 7, 8, 9,10],
         widget=widgets.RadioSelectHorizontal)
@@ -165,7 +165,7 @@ class Player(BasePlayer):
             #self.participant.vars["total_payoff"] = self.total_payoff
 
     def payoff3(self):
-        if self.selected==1:
+        if self.selected == 1:
             if self.treatment=="ButtonA":
                 if self.store_time !=0 :
                     if self.q_number == 100:
