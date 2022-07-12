@@ -1,16 +1,14 @@
 {%  block title % }Survey{%  endblock % }
 
-Before receiving your payment please answer the following questions:
 
 
 {% block content %}
+Before receiving your payment please answer the following questions:
+
     {{ formfields }}
+    {% next_button %}
 
 {% endblock %}
-
-
-
-{% next_button %}
 
 
 
