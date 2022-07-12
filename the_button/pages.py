@@ -75,9 +75,7 @@ class task_timed(Page):
 
 class Payment(Page):
     form_model = 'player'
-    form_fields = ['payoff_svo', 'payoff_svo_other','payoff2_self',
-                   'payoff2_self_danat','payoff_charity_danat','payoff_charity',
-                   'bonus', 'payoff3','paid_slider']
+    form_fields = []
     def vars_for_template(self):
         return dict(
             payoff_svo=self.player.participant.vars["payoff_svo"],
@@ -149,7 +147,7 @@ class Survey(Page):
         self.player.set_payoffs()
         self.player.set_bonus()
        # self.player.total_payoff()
-        self.player.payoff3()
+        self.player.set_payoff3()
 
 class Survey_danat(Page):
     form_model = 'player'

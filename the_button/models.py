@@ -164,14 +164,14 @@ class Player(BasePlayer):
             #self.total_payoff = cu(self.participant.vars["bonus"]) # + self.participant.vars["payoff_svo"])
             #self.participant.vars["total_payoff"] = self.total_payoff
 
-    def payoff3(self):
+    def set_payoff3(self):
         if self.selected == 1:
             if self.treatment=="ButtonA":
                 if self.store_time !=0 :
                     if self.q_number == 100:
                         self.payoff3 = 10.5
                         self.participant.vars["payoff3"] = self.payoff3 +float(self.participant.vars["payoff_svo"])
-                        self.payoff3 =  self.participant.vars["payoff3"]
+                        self.payoff3 = self.participant.vars["payoff3"]
                     else:
                         self.payoff3=10
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
