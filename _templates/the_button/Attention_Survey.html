@@ -1,5 +1,6 @@
 {% extends "global/Page.html" %}
 {% load staticfiles otree_tags %}
+{% load otree%}
 {% block title %}Survey{% endblock %}
 {% block content %}
 
@@ -7,7 +8,7 @@ Before receiving your payment please answer the following questions:
 
 
 
-{% formfields %}
+{{ formfields }}
 
 
 {% next_button %}
