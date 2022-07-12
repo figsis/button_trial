@@ -93,7 +93,7 @@ class Payment(Page):
             #payoff2o=self.participant.vars["payoff2o"] ,
             bonus= self.player.bonus,
             #total_payoff = self.participant.vars["total_payoff"],
-            payoff3= self.participant.vars["payoff3"],
+            payoff3= self.player.payoff3
 
         )
 
