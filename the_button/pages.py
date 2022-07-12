@@ -101,6 +101,9 @@ class Attention_Survey(Page):
     form_model = 'player'
     form_fields = ['q_number']
 
+    def vars_for_template(self):
+        return dict(q_number=self.player.q_number)
+
 class Survey(Page):
     form_model = 'player'
     form_fields = []
