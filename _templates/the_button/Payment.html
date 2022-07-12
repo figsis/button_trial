@@ -9,7 +9,7 @@
     <br><br>
 
   {% if player.selected == 0%}
-        <b>Task 2 </b>: Slider {% player.paid_slider %} has been selected, you get {% formfield player.payoff_svo %} and the Red Cross gets {% formfield player.payoff_svo_other%}.<br>
+        <b>Task 2 </b>: Slider {% formfield  player.paid_slider %} has been selected, you get {% formfield player.payoff_svo %} and the Red Cross gets {% formfield player.payoff_svo_other%}.<br>
    <b>Task 3 </b>: You have not been selected for payment.<br>
         <b>Bonus</b> :{%if player.bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
        {%elif player.bonus != 0%} You inputed the highest number. You get a bonus of {% formfield player.bonus %}
