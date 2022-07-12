@@ -75,8 +75,7 @@ class task_timed(Page):
 
 class Payment(Page):
     form_model = 'player'
-    form_fields = [ 'bonus',
-                    'paid_slider', 'payoff2_self', 'payoff2_charity', 'payoff2_self_danat',
+    form_fields = [ 'bonus', 'payoff2_self', 'payoff2_charity', 'payoff2_self_danat',
                     'payoff2_charity_danat', 'payoff3']
     def vars_for_template(self):
         return dict(
@@ -84,7 +83,7 @@ class Payment(Page):
             payoff_svo_other=self.player.participant.vars["payoff_svo_other"],
             payoff2_charity=self.player.participant.vars["payoff2_charity"],
             payoff2_charity_danat=self.player.participant.vars["payoff2_charity_danat"],
-            paid_slider = self.player.participant.vars["paid_slider"],
+            #paid_slider = self.player.participant.vars["paid_slider"],
             selected= self.session.vars["selected"],
             #   payoff2=self.participant.vars["payoff2"],
             payoff2_self=self.participant.vars["payoff2_self"],
