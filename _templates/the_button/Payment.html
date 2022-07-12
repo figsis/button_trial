@@ -16,7 +16,9 @@
         {% endif %}
   {{elif player.selected == 1}}
         <b>Task 2 </b>: Slider {{paid_slider}} has been selected, you get {{payoff_svo}} and the Red Cross gets {{payoff_svo_other}}.<br>
-    <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self}} and the Red Cross get {{payoff2_charity}}.<br>
+        {{if player.treatment == "ButtonA" and player.treatment == "ButtonB"}} <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self}} and the Red Cross get {{payoff2_charity}}.<br>
+         {{elif player.treatment == "NoButton"}} <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self_danat}} and the Red Cross get {{payoff2_charity_danat}}.<br>
+       {% endif %}
         <b>Bonus</b> :{{if bonus == 0}}  You did not input the highest number. Pay more attention next time! No bonus for you.
        {{elif bonus != 0}} You inputed the highest number. You get a bonus of {{bonus}}
 {% endif %}

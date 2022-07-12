@@ -8,7 +8,7 @@ class InstructionsTask1(Page):
 
 class Task1(Page):
     form_model = 'player'
-    form_fields = ['task1']#'timeSpent'
+    form_fields = ['task1','timeSpent']
 
     def before_next_page(self):
         self.player.set_payoffs1()

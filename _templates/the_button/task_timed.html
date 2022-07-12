@@ -12,6 +12,14 @@ Task 4
 
 
 {% block scripts %}
+
+<script type="text/javascript">
+function deactivate() {
+   document.getElementsByName('danat')[0].disabled = true;
+   document.getElementsByName('danat')[1].disabled= true;
+   return true;
+}
+</script>
         <script>
         let customTimerEle = document.getElementById('mins-left');
         let customTimer2 = document.getElementById('secs-left');
@@ -31,7 +39,6 @@ Task 4
             document.getElementById('store_time').value = customTimer.innerText;
         }
 
-
         setTimeout(function() {$(".content").fadeOut(1500);}, 3000)
         setTimeout(function() {$(".content1").fadeIn(1500);}, 30000); //30 seconds
         setTimeout(function() {$(".content1").fadeOut(1500);},32000); //lasts for 2 seconds
@@ -42,13 +49,13 @@ Task 4
         setTimeout(function() {$(".content4").fadeIn(1500);},170000);  //2 min 50 seconds
         setTimeout(function() {$(".content4").fadeOut(1500);},172000); //lasts for 2 seconds
 
-    </script>
-{% endblock %}
+        </script>{% endblock %}
+
 {% block content %}
     <input type="hidden" name="store_time" id="store_time" />
- <div class="alert alert-secondary" role="alert">
-  This page will automatically submit in <b>
 
+<div class="alert alert-secondary" role="alert">
+  This page will automatically submit in <b>
    <span id="mins-left"></span> minutes and <span id="secs-left"></span> seconds</b>. <br>
 
     <div class="card">
@@ -62,18 +69,14 @@ Task 4
             <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:50px; font-family: Fantasy ; "> 100 </div></div>
      </div>
 
-    <div class="clearfix">
-
-    </div>
+    <div class="clearfix"></div>
 
 
       <p> Please make your choice here:</p>
+      <button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime(); deactivate()">Select option A</button>
+      <button name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime(); deactivate()">Select option B</button>
 
+   </div></div></div>
 
-      <button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();this.disabled=true">Select option A</button>
-      <button name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime();this.disabled=true">Select option B</button>
-
-   </div>
-    </div>
- </div>
+ {{ formfield_errors 'store_time' }}
 {% endblock %}

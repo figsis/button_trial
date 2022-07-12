@@ -64,7 +64,7 @@ class danat_clicked(Page):
 
 class task_timed(Page):
     form_model = 'player'
-    form_fields = ['danat', 'store_time']
+    form_fields = ['danat','store_time']
     timeout_seconds = Constants.timer
 
 
@@ -75,16 +75,20 @@ class task_timed(Page):
 
 class Payment(Page):
     form_model = 'player'
-
+    form_fields = ['payoff_svo', 'payoff_svo_other','payoff2_self',
+                   'payoff2_self_danat','payoff_charity_danat','payoff_charity',
+                   'bonus', 'payoff3','paid_slider']
     def vars_for_template(self):
         return dict(
             payoff_svo=self.player.participant.vars["payoff_svo"],
             payoff_svo_other=self.player.participant.vars["payoff_svo_other"],
             payoff2_charity=self.player.participant.vars["payoff2_charity"],
+            payoff2_charity_danat=self.player.participant.vars["payoff2_charity_danat"],
             paid_slider = self.player.participant.vars["paid_slider"],
             selected= self.session.vars["selected"],
             payoff2=self.participant.vars["payoff2"],
             payoff2_self=self.participant.vars["payoff2_self"],
+            payoff2_self_danat=self.participant.vars["payoff2_self_danat"],
             payoff2o=self.participant.vars["payoff2o"] ,
             bonus= self.player.bonus,
             total_payoff = self.participant.vars["total_payoff"],
@@ -112,29 +116,29 @@ class Survey(Page):
     def get_form_fields(self):
         if self.player.treatment == "ButtonA":
             #selfish button pressed but altruistic dana (altruistic-selfish)
-            if self.player.button == 1 and self.participant.vars["payoff1_self"]  ==5:
+            if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==5:
                 return ['q0', 'q1','q_change']
             #selfish button pressed and selfish dana (selfish-selfish)
-            elif self.player.button == 1 and self.participant.vars["payoff1_self"]  ==10:
+            elif self.player.store_time != 0and self.participant.vars["payoff1_self"]  ==10:
                 return ['q0','q1','q_nochange']
             # selfish button not pressed and selfish dana (selfish-altruistic)
             elif self.player.button == 0 and self.participant.vars["payoff1_self"]  ==10:
                 return ['q0','q2','q_change']
             # selfish button not pressed and altruistic dana (altruistic-altruistic)
-            elif self.player.button == 0 and self.participant.vars["payoff1_self"] == 5:
+            elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 5:
                 return ['q0','q2','q_nochange']
         if self.player.treatment == "ButtonB":
             #altruistic button pressed and altruistic dana (altruistic-altruistic)
-            if self.player.button == 1 and self.participant.vars["payoff1_self"]  ==5:
+            if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==5:
                 return ['q0', 'q1',  'q_nochange']
             #altruistic button pressed and selfish dana (selfish-altruistic)
-            elif self.player.button == 1 and self.participant.vars["payoff1_self"]  ==10:
+            elif self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==10:
                 return ['q0', 'q1', 'q_change']
             #altruistic button not pressed and selfish dana (selfish-selfish)
-            elif self.player.button == 0 and self.participant.vars["payoff1_self"]  ==10:
+            elif self.player.store_time == 0 and self.participant.vars["payoff1_self"]  ==10:
                 return ['q0', 'q2',  'q_nochange']
             # altruistic button not pressed and altruistic dana (altruistic-selfish)
-            elif self.player.button == 0 and self.participant.vars["payoff1_self"] == 5:
+            elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 5:
                 return ['q0', 'q2',  'q_change']
     def before_next_page(self):
         self.player.set_payoffs()
@@ -164,7 +168,8 @@ class Survey_danat(Page):
     def before_next_page(self):
         self.player.set_payoffs()
         self.player.set_bonus()
-        self.player.total_payoff()
+        #  self.player.total_payoff()
+        self.player.payoff3()
 
 class Comments(Page):
     form_model = 'player'
