@@ -43,6 +43,8 @@ class Subsession(BaseSubsession):
         for player in self.get_players():
             player.treatment = random.choice(["ButtonA", "ButtonB","NoButton"])
             self.session.vars["treatment"] = player.treatment
+            player.selected= random.choices(Constants.numberList, weights=(50,50), k=1)[0] #10,90
+            self.session.vars["selected"] = player.selected
             player.participant.vars["total_payoff"] = ""
             player.participant.vars["payoff2_self"] = ""
             player.participant.vars["payoff2"] = ""
@@ -54,8 +56,6 @@ class Subsession(BaseSubsession):
             player.participant.vars["bonus"] = ""
             player.participant.vars["danat"] = ""
         #    player.participant.vars["too_long"] = False
-            player.selected= random.choices(Constants.numberList, weights=(50,50), k=1)[0] #10,90
-            self.session.vars["selected"] = player.selected
 
 
 
@@ -65,6 +65,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     prolific_id = models.StringField()
+    eo = models.StringField()
     treatment = models.StringField()
     button = models.BooleanField(initial=0)
     bonus = models.FloatField()
