@@ -172,92 +172,116 @@ class Player(BasePlayer):
                     if self.q_number == 100:
                         self.payoff3 = 10.5
                         self.participant.vars["payoff3"] = self.payoff3 +float(self.participant.vars["payoff_svo"])
+                        self.payoff3 =  self.participant.vars["payoff3"]
                     else:
                         self.payoff3=10
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                 else:
                     if self.q_number == 100:
                         self.payoff3 = 5.5
                         self.participant.vars["payoff3"] = self.payoff3+float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     else:
                         self.payoff3=5
                         self.participant.vars["payoff3"] = self.payoff3+float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
             elif self.treatment == "ButtonB":
                 if self.store_time!=0:
                     if self.q_number == 100:
                         self.payoff3 = 5.5
                         self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     else:
                         self.payoff3=5
                         self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                 else:
                     if self.q_number == 100:
                         self.payoff3 = 10.5
                         self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     else:
                         self.payoff3 = 10
                         self.participant.vars["payoff3"] = self.payoff3+float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
             elif self.treatment == "NoButton":
                 if self.q_number == 100:
                     if self.danat == "A":
                         self.payoff3 =10.5
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     if self.danat == "B":
                         self.payoff3 = 5.5
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                 else:
                     if self.danat == "A":
                         self.payoff3 =0.5
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     if self.danat == "B":
                         self.payoff3 = 0.5
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
         elif self.selected == 0:
             if self.treatment=="ButtonA":
                 if self.store_time !=0 :
                     if self.q_number == 100:
                         self.payoff3 = 0.5
                         self.participant.vars["payoff3"] = self.payoff3+float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     else:
                         self.payoff3=0
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                 else:
                     if self.q_number == 100:
                         self.payoff3 = 0.5
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     else:
                         self.payoff3=0
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
             elif self.treatment == "ButtonB":
                 if self.store_time!=0:
                     if self.q_number == 100:
                         self.payoff3 = 0.5
                         self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     else:
                         self.payoff3=0
                         self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                 else:
                     if self.q_number == 100:
                         self.payoff3 = 0.5
                         self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     else:
                         self.payoff3=0
                         self.participant.vars["payoff3"] = self.payoff3+ float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
             elif self.treatment == "NoButton":
                 if self.q_number == 100:
                     if self.danat == "A":
                         self.payoff3 = 0.5
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     if self.danat == "B":
                         self.payoff3 = 0.5
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                 else:
                     if self.danat == "A":
                         self.payoff3 = 0
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
                     if self.danat == "B":
                         self.payoff3 = 0
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff3 = self.participant.vars["payoff3"]
 
 
 
