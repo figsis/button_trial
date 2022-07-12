@@ -65,7 +65,6 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     prolific_id = models.StringField()
-    eo = models.StringField()
     treatment = models.StringField()
     button = models.BooleanField(initial=0)
     bonus = models.FloatField()
