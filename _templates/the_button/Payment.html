@@ -7,33 +7,42 @@
     <div class="alert alert-info" role="alert">
         You have reached the end of the experiment, thank you for participating! Here is a summary of the final payoffs:
     <br><br>
-
-  {% if selected == 0%}
-
+    {% if treatment == "ButtonA" and if selected == 0%}
         <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
         <b>Task 3 </b>: You have not been selected for payment.<br>
-
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
-       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}
-        {% endif %}
-
-  {%elif selected == 1%}
+       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
+    {% elif treatment == "ButtonA" and if selected == 1%}
+        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{ payoff2_self }} and the Red Cross get {{payoff2_charity }}.<br>
+        <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
+       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
+    {% elif treatment == "ButtonB" and if selected == 0%}
+        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 3 </b>: You have not been selected for payment.<br>
+        <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
+       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
+    {% elif treatment == "ButtonB" and if selected == 1%}
+        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{ payoff2_self }} and the Red Cross get {{payoff2_charity }}.<br>
+        <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
+        {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
+    {% elif treatment == "NoButton" and if selected == 0%}
+        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 3 </b>: You have not been selected for payment.<br>
+        <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
+       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
+    {% elif treatment == "NoButton" and if selected == 1%}
         <b>Task 2 </b>: From the randomnly selected slider, you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
-
-        <b>Task 3 </b>: {% if treatment == "ButtonA" and treatment == "ButtonB"%}
-         You have been selected for payment. Thus, you get {{ payoff2_self }} and the Red Cross get {{payoff2_charity }}.<br>
-        {% elif treatment == "NoButton" %}
-         You have been selected for payment. Thus, you get {{payoff2_self_danat }} and the Red Cross get {{payoff2_charity_danat}}.<br>
-       {% endif %}
-
+        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self_danat }} and the Red Cross get {{payoff2_charity_danat}}.<br>
         <b>Bonus</b> :{% if bonus == 0 %}  You did not input the highest number. Pay more attention next time! No bonus for you.
        {% elif bonus != 0 %} You inputed the highest number. You get a bonus of {{bonus}}
-{% endif %}
-{% endif %}
+    {% endif %}
+
 </div><br>
 
  <div class="alert alert-light" role="alert">
-     Your total payoff is then: {{payoff3 }}
+     Your total payoff is then: {{payoff3}}
  </div>
 
 {% next_button %}
