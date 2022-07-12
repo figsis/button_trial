@@ -71,7 +71,7 @@ class Player(BasePlayer):
     store_time = models.FloatField()  # for the timer
     payoff2_self = models.IntegerField()  # payoff task 2 (button)
     # payoff2 = models.IntegerField()
-    payoff3 = models.IntegerField()
+    payoff3 = models.FloatField()
     #payoff2o = models.IntegerField()
     payoff2_charity = models.IntegerField()  # payoff task 2 (button)
     danat = models.StringField(blank=False)  # whether participant takes selfish choice in Dana timed task
