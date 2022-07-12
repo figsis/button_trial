@@ -8,12 +8,12 @@
         You have reached the end of the experiment, thank you for participating! Here is a summary of the final payoffs:
     <br><br>
 
-    {% if treatment == "ButtonA" and selected == 0%}
+    {% if treatment == "ButtonA" and selected == 0%} 1
         <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
         <b>Task 3 </b>: You have not been selected for payment.<br>
-        <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
+        <b>Bonus</b>: {%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
        {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
-    {% elif treatment == "ButtonA" and selected == 1%}
+    {% elif treatment == "ButtonA" and selected == 1%}2
         <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
         <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self}} and the Red Cross gets {{payoff2_charity}}.<br>
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
