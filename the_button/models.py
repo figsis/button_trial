@@ -45,11 +45,8 @@ class Subsession(BaseSubsession):
             self.session.vars["treatment"] = player.treatment
             player.selected= random.choices(Constants.numberList, weights=(50,50), k=1)[0] #10,90
             self.session.vars["selected"] = player.selected
-            player.participant.vars["total_payoff"] = ""
             player.participant.vars["payoff2_self"] = ""
-            player.participant.vars["payoff2"] = ""
             player.participant.vars["payoff3"] = ""
-            player.participant.vars["payoff2o"] = ""
             player.participant.vars["payoff2_charity"] = ""
             player.participant.vars["payoff2_self_danat"] = ""
             player.participant.vars["payoff2_charity_danat"] = ""
@@ -127,25 +124,20 @@ class Player(BasePlayer):
                 self.payoff2_charity = self.participant.vars["payoff2_charity"]
             elif self.session.vars["treatment"] == "NoButton":
                 if self.danat == "A":
-                    self.player.participant.vars["danat"] == "A"
+                    self.participant.vars["danat"] == "A"
                     self.participant.vars["payoff2_self_danat"] = Constants.dana2A_self
                     self.participant.vars["payoff2_charity_danat"] = Constants.dana2A_other
+                    self.payoff2_self_danat = self.participant.vars["payoff2_self_danat"]  # to store to the oTree database
+                    self.payoff2_charity_danat = self.participant.vars["payoff2_charity_danat"]
+                    self.danat = self.participant.vars["danat"]
                 elif self.danat == "B":
-                    self.player.participant.vars["danat"] == "B"
+                    self.participant.vars["danat"] == "B"
                     self.participant.vars["payoff2_self_danat"] = Constants.dana2B_self # 10
                     self.participant.vars["payoff2_charity_danat"] = Constants.dana2B_other# 10
-            # to store for next app (button task + final payoffs)
-                self.payoff2_self_danat = self.participant.vars["payoff2_self_danat"]  # to store to the oTree database
-                self.payoff2_charity_danat = self.participant.vars["payoff2_charity_danat"]
-                self.danat=self.player.participant.vars["danat"]
-               # if self.session.vars["selected"] == 1:
-                #    self.payoff2 = self.participant.vars["payoff2_self_danat"]
-                 #   self.participant.vars["payoff2"] = self.payoff2
-                 ##   self.payoff2o = self.participant.vars["payoff2_charity_danat"]
-                   # self.participant.vars["payoff2o"] = self.payoff2o
-                #else:
-                 #   self.payoff2 = 0
-                  #  self.payoff2o = 0
+                    self.payoff2_self_danat = self.participant.vars["payoff2_self_danat"]  # to store to the oTree database
+                    self.payoff2_charity_danat = self.participant.vars["payoff2_charity_danat"]
+                    self.danat = self.participant.vars["danat"]
+
 
     def set_bonus(self):
         if self.q_number == 100:
@@ -211,8 +203,7 @@ class Player(BasePlayer):
                         self.payoff3 =5
                         self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
                         self.payoff3 = self.participant.vars["payoff3"]
-
-        if self.selected == 1:
+        if self.selected == 0:
             if self.treatment == "ButtonA" and self.store_time != 0:  # treatment A and press
                     if self.q_number == 100:
                         self.payoff3 = 0.5
