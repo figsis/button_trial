@@ -107,7 +107,8 @@ class Survey(Page):
 
     def vars_for_template(self):
         return dict(payoff1_self=self.player.participant.vars["payoff1_self"],
-                    payoff2_self=self.participant.vars["payoff2_self"])
+                    payoff2_self=self.participant.vars["payoff2_self"],
+                    store_time = self.player.store_time)
 
     def is_displayed(self):
         player = self.player
@@ -116,20 +117,20 @@ class Survey(Page):
     def get_form_fields(self):
         if self.player.treatment == "ButtonA":
             #selfish button pressed but altruistic dana (altruistic-selfish)
-            if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==5:
+            if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  == 5:
                 return ['q0', 'q1','q_change']
             #selfish button pressed and selfish dana (selfish-selfish)
-            elif self.player.store_time != 0and self.participant.vars["payoff1_self"]  ==10:
+            elif self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==10:
                 return ['q0','q1','q_nochange']
             # selfish button not pressed and selfish dana (selfish-altruistic)
-            elif self.player.button == 0 and self.participant.vars["payoff1_self"]  ==10:
+            elif self.player.store_time == 0 and self.participant.vars["payoff1_self"]  ==10:
                 return ['q0','q2','q_change']
             # selfish button not pressed and altruistic dana (altruistic-altruistic)
             elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 5:
                 return ['q0','q2','q_nochange']
         if self.player.treatment == "ButtonB":
             #altruistic button pressed and altruistic dana (altruistic-altruistic)
-            if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==5:
+            if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  == 5:
                 return ['q0', 'q1',  'q_nochange']
             #altruistic button pressed and selfish dana (selfish-altruistic)
             elif self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==10:
@@ -140,6 +141,7 @@ class Survey(Page):
             # altruistic button not pressed and altruistic dana (altruistic-selfish)
             elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 5:
                 return ['q0', 'q2',  'q_change']
+
     def before_next_page(self):
         self.player.set_payoffs()
         self.player.set_bonus()
