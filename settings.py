@@ -12,6 +12,16 @@ SESSION_CONFIGS = [
 		 random_payoff='RAND',
 		 precision='INTEGERS',
 		 doc=''),
+	dict(name='Button_nosvo',
+		 app_sequence=['dana', 'the_button'],
+		 num_demo_participants=100,
+		 select_items='PRIMARY',
+		 items_in_random_order=False,
+		 scale=0.01,
+		 slider_init='LEFT',
+		 random_payoff='RAND',
+		 precision='INTEGERS',
+		 doc=''),
 ]
 
 #DATABASES = {
