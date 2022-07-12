@@ -170,7 +170,7 @@ class Player(BasePlayer):
                 if self.store_time !=0 :
                     if self.q_number == 100:
                         self.payoff3 = 10.5
-                        self.participant.vars["payoff3"] = self.payoff3 +float(self.participant.vars["payoff_svo"])
+                        self.participant.vars["payoff3"] = self.payoff3 + float(self.participant.vars["payoff_svo"])
                         self.payoff3 = self.participant.vars["payoff3"]
                     else:
                         self.payoff3=10
