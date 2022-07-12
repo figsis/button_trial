@@ -14,8 +14,8 @@
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
        {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
     {% elif treatment == "ButtonA" and selected == 1%}
-        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
-        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{ payoff2_self }} and the Red Cross get {{payoff2_charity }}.<br>
+        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self}} and the Red Cross gets {{payoff2_charity}}.<br>
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
        {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
     {% elif treatment == "ButtonB" and selected == 0%}
@@ -25,7 +25,7 @@
        {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
     {% elif treatment == "ButtonB" and selected == 1%}
         <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
-        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{ payoff2_self }} and the Red Cross get {{payoff2_charity }}.<br>
+        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{ payoff2_self }} and the Red Cross gets {{payoff2_charity}}.<br>
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
         {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
     {% elif treatment == "NoButton" and selected == 0%}
@@ -35,7 +35,7 @@
        {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
     {% elif treatment == "NoButton" and selected == 1%}
         <b>Task 2 </b>: From the randomnly selected slider, you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
-        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self_danat }} and the Red Cross get {{payoff2_charity_danat}}.<br>
+        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self_danat }} and the Red Cross gets {{payoff2_charity_danat}}.<br>
         <b>Bonus</b> :{% if bonus == 0 %}  You did not input the highest number. Pay more attention next time! No bonus for you.
        {% elif bonus != 0 %} You inputed the highest number. You get a bonus of {{bonus}}
     {% endif %}

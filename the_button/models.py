@@ -101,27 +101,37 @@ class Player(BasePlayer):
                 #if self.button==1: #presing yields selfish option b
                 #if self.session.vars["selected"] == 1:
                 if self.store_time != 0:
-                    self.participant.vars["payoff2_self"] = Constants.optionB[0] #10
-                    self.participant.vars["payoff2_charity"] = Constants.optionB[1] #0
-                    self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
-                    self.payoff2_charity = self.participant.vars["payoff2_charity"]
+                    self.payoff2_self=Constants.optionB[0]
+                    self.payoff2_charity = Constants.optionB[1]
+                    #self.participant.vars["payoff2_self"] = Constants.optionB[0] #10
+                    #self.participant.vars["payoff2_charity"] = Constants.optionB[1] #0
+                    #self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
+                    #self.payoff2_charity = self.participant.vars["payoff2_charity"]
                  #       self.payoff2 = self.participant.vars["payoff2_self"]
                   #      self.payoff2o = self.participant.vars["payoff2_charity"]
                 elif self.store_time == 0:
-                    self.participant.vars["payoff2_self"] = Constants.optionA[0] #5
-                    self.participant.vars["payoff2_charity"] = Constants.optionA[1] #15
-                    self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
-                    self.payoff2_charity = self.participant.vars["payoff2_charity"]
+                    self.payoff2_self = Constants.optionA[0]
+                    self.payoff2_charity = Constants.optionA[1]
+                    #self.participant.vars["payoff2_self"] = Constants.optionA[0] #5
+                    #self.participant.vars["payoff2_charity"] = Constants.optionA[1] #15
+                    #self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
+                    #self.payoff2_charity = self.participant.vars["payoff2_charity"]
             elif self.treatment == "ButtonB":
                 #if self.button==1: #pressing the button yields the prosocial action
                 if self.store_time != 0:
-                    self.participant.vars["payoff2_self"] = Constants.optionA[0]  #5
-                    self.participant.vars["payoff2_charity"] = Constants.optionA[1] #15
+                    self.payoff2_self = Constants.optionA[0]
+                    self.payoff2_charity = Constants.optionA[1]
+                    #self.participant.vars["payoff2_self"] = Constants.optionA[0]  #5
+                    #self.participant.vars["payoff2_charity"] = Constants.optionA[1] #15
                 else: #not pressing the button yields the selfish action
-                    self.participant.vars["payoff2_self"] = Constants.optionB[0] #10
-                    self.participant.vars["payoff2_charity"] = Constants.optionB[1] #0
-                self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
-                self.payoff2_charity = self.participant.vars["payoff2_charity"]
+                    self.payoff2_self = Constants.optionA[0]
+                    self.payoff2_charity = Constants.optionA[1]
+                    #self.participant.vars["payoff2_self"] = Constants.optionB[0] #10
+                    #self.participant.vars["payoff2_charity"] = Constants.optionB[1] #0
+                #self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
+                #self.payoff2_charity = self.participant.vars["payoff2_charity"]
+                self.participant.vars["payoff2_charity"]=self.payoff2_charity
+                self.participant.vars["payoff2_self"] = self.payoff2_self
             elif self.session.vars["treatment"] == "NoButton":
                 if self.danat == "A":
                     self.participant.vars["danat"] == "A"
