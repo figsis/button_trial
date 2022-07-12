@@ -1,8 +1,8 @@
 {% extends "global/Page.html" %}
 {% load staticfiles otree_tags %}
 
-{{ block title }}Survey{{ endblock }}
-{{ block content }}
+{% block title %} Survey {% endblock %}
+{% block content %}
 
 Before receiving your payment please answer the following questions:
 
@@ -18,4 +18,4 @@ Before receiving your payment please answer the following questions:
 {% endblock %}
 
 
-{{  endblock }}
+{% endblock %}
