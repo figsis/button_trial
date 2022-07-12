@@ -19,12 +19,12 @@
 <p> This is almost the end of Task 3. You will now have the opportunity to think more about your decision in this task and possibly alter your final payoff.
 
     In the next screen you will face a red button. If you press it, then you will receive
-    {{if player.treatment == 'ButtonA'}} {{ Constants.optionB0}} &#8364 and the charity will get  {{ Constants.optionB1}}&#8364.
-    {{elif player.treatment == "ButtonB"}} {{ Constants.optionA0}} &#8364 and the charity will get  {{ Constants.optionA1}}&#8364.
+    {% if player.treatment == 'ButtonA'%} {{ Constants.optionB0}} &#8364 and the charity will get  {{ Constants.optionB1}}&#8364.
+    {%elif player.treatment == "ButtonB"%} {{ Constants.optionA0}} &#8364 and the charity will get  {{ Constants.optionA1}}&#8364.
      {% endif %}
     If you do not press it, you will get
-    {{if player.treatment == "ButtonA"}} {{ Constants.optionA0}} &#8364 and the charity will get  {{ Constants.optionA1}}&#8364. </p>
-    {{elif player.treatment == "ButtonB"}} {{ Constants.optionB0}} &#8364 and the charity will get  {{ Constants.optionB1}}&#8364.  </p>
+    {%if player.treatment == "ButtonA"%} {{ Constants.optionA0}} &#8364 and the charity will get  {{ Constants.optionA1}}&#8364. </p>
+    {%elif player.treatment == "ButtonB"%} {{ Constants.optionB0}} &#8364 and the charity will get  {{ Constants.optionB1}}&#8364.  </p>
      {% endif %}
 
      <p>This decision will override the previous one and thus determine the final payoffs - for you and the Red Cross - in Task 3. You have <b> 5 minutes</b> to think more about your decision. </p>
