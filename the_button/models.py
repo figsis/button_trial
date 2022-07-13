@@ -74,6 +74,7 @@ class Player(BasePlayer):
     #payoff2o = models.IntegerField()
     payoff2_charity = models.IntegerField()  # payoff task 2 (button)
     danat = models.StringField(blank=True)  # whether participant takes selfish choice in Dana timed task
+    secondaryButton= models.StringField(blank=True)
     payoff2_self_danat = models.IntegerField()  # payoff dana_timed
     payoff2_charity_danat = models.IntegerField()  # payoff dana_timed
     #total_payoff = models.FloatField()
