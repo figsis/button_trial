@@ -105,10 +105,24 @@ function deactivate() {
 
       <p> Please make your choice here:</p>
 
-<button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivate()" > Select Option A</button>
-<button  type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTimeB();deactivate()" > Select Option B</button>
+<button  name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivate()" > Select Option A</button>
+<button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTimeB();deactivate()" > Select Option B</button>
+<form>
+  Select:<br>
 
-<input hidden id="secondary_button" name="secondary_button" required>
+  <label>
+    <input type="radio" name="danat" id="danat"  value="B" required>
+    B
+  </label><br>
+
+  <label>
+    <input type="radio" name="danat" id="danat" value="A">
+   A
+  </label><br>
+  <input type="submit" onclick="storeTime();this.disabled=true">
+</form>
+
+<input hidden id="secondary_button" name="secondary_button" >
 <input hidden id="store_timeA" name="store_timeA">
 <input hidden id="store_timeB" name="store_timeB">
 
