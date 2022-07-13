@@ -90,9 +90,9 @@ document.getElementsByName('danat')[0].onsubmit = function() {
 
       <p> Please make your choice here:</p>
 
-      <button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime(); deactivateBB()"> Select Option A</button>
+      <button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();this.form.submit(); deactivateB()"> Select Option A</button>
 
-      <button type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime()"> Select Option B</button>
+      <button type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime();this.form.submit(); deactivateA()"> Select Option B</button>
 
 
    </div></div></div>
