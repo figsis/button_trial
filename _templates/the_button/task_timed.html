@@ -28,35 +28,10 @@ function deactivateA() {
    return true;
 }
 </script>
-<script type="text/javascript">
-$('form#danat').submit(function(e){
-    $(this).children('input[type=submit]').attr('disabled', 'disabled');
-    // this is just for demonstration
-    e.preventDefault();
-    return false;
-});
-</script>
-<script type="text/javascript">
-    $('danat').bind('click', function (e) {
-
-        if (ValidateForm(e)) {
-
-            //client side validation ok!
-            //disable the button:
-            $(buttonID).attr("disabled", true);
-
-            //force a postback:
-            try {
-                __doPostBack($(buttonID).attr("name"), "");
-                return true;
-            } catch (err) {
-                return true;
-            }
-
-        }
-        //client side validation failed!
-        return false;
-    });
+<script>
+document.getElementById('danat').onsubmit = function() {
+    document.getElementById('danat').disabled = true;
+};
 </script>
         <script>
         let customTimerEle = document.getElementById('mins-left');
@@ -112,13 +87,11 @@ $('form#danat').submit(function(e){
 
       <p> Please make your choice here:</p>
 
-<form id="danat">
-    <input type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime()" >
-</form>
+      <button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime()"> Select Option A</button>
 
-<form id="danat">
-    <input type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime()" >
-</form>
+      <button type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime()"> Select Option B</button>
+
+
    </div></div></div>
 
 
