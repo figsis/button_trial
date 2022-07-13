@@ -147,7 +147,7 @@ class Survey(Page):
         self.player.set_payoffs()
         self.player.set_bonus()
         self.player.set_payoff3()
-        self.player.set_payoffsdanat()
+
 
 class Survey_danat(Page):
     form_model = 'player'
@@ -171,8 +171,7 @@ class Survey_danat(Page):
     def before_next_page(self):
         self.player.set_payoffs()
         self.player.set_bonus()
-        #  self.player.total_payoff()
-        self.player.payoff3()
+        self.player.set_payoffsdanat()
 
 class Comments(Page):
     form_model = 'player'
