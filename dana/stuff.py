@@ -7,7 +7,7 @@ Sept. 2018, Markus Konrad <markus.konrad@wzb.eu>
 import settings
 
 from django import forms
-from django.utils.translation import ugettext as _
+#from django.utils.translation import ugettext as _
 
 from otree.api import Page, WaitPage
 
