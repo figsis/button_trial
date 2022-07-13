@@ -37,16 +37,15 @@ function deactivate() {
 }
 </script>
 <script type="text/javascript">
-        let btns = document.querySelectorAll('#danat');
+ let options = document.querySelectorAll('.option');
         let selectedValue = '';
-        btns.forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
-                let option = e.target.value;
-                selectedValue = option;
-            });
-        });
 
         document.getElementById('myform').addEventListener('submit', function (e) {
+            options.forEach(function (option) {
+                if (option.checked) {
+                    selectedValue = option.value;
+                }
+            });
             if (selectedValue === '') {
                 alert('Please select an option');
                 e.preventDefault();
@@ -122,9 +121,11 @@ function deactivate() {
 
 
     <form method="post" id="myform">
-        <button name="danat" id="danat" value="A"> Select Option A</button>
-        <button name="danat" id="danat" value="B"> Select Option B</button>
-        <input type="submit" name="submit" value="Submit" required/>
+        <input type="radio" class="option" name="danat" id="danat" value="A" required> SELECT A
+        <br>
+        <input type="radio" class="option" name="danat" id="danat" value="B" required> SELECT B
+        <br>
+        <input type="submit" name="submit" value="Submit" />
     </form>
 
 <input hidden id="secondary_button" name="secondary_button" >
