@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+
+{% load staticfiles otree_tags %}
+
+{% block app_styles %}
+<link href="{% static 'otreeutils/understanding.css' %}" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block app_scripts %}
+<script src="{% static 'otreeutils/understanding.js' %}">
+
+$('.collapse').collapse()
+    let activeTab = 0;
+
+    function showCurrentTabOnly() {
+        let tabIndex = 0;
+        for (let tab of document.getElementsByClassName('tab')) {
+            tab.style.display = tabIndex === activeTab ? 'block' : 'none';
+            tabIndex++;
+        }
+    }
+
+</script>
+{% endblock %}
+
+{% block title %}
+    Comprehension Questions
+
+{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-body">
+      We now ask you to answer some questions to test your understanding of how to read the payoff table. <br>
+        You need to answer correctly to all the questions to proceed.
+      Click <u><a data-toggle="collapse" href="#multiCollapseExample2"
+         aria-expanded="false" aria-controls="multiCollapseExample1">here</a></u> to read the instructions again.
+
+      <div class="collapsing" id="multiCollapseExample2">
+      <div class="card card-body">
+          {% include 'snippets/Instr1Task1.html' %}
+      </div>
+      </div>
+
+        <br>
+
+      <div class="clearfix">
+          <img class="col-md-12 float-sm-end mb-12 ms-md-12" style="max-width:250px" src="{% static 'Example.jpg' %}"/></div>
+
+      <br>
+
+    <ul class="questions">
+    {{ questions_form.as_ul }}
+</ul>
+
+<div style="display: none">
+    {% next_button %}
+</div>
+  </div></div> <br>
+
+    <input class="btn btn-primary btn-large btn-primary" type="button" value="Next"
+           onclick="checkUnderstandingQuestionsForm()">
+
+<script>
+$(function() {
+    setupUnderstandingQuestionsForm({{ n_questions }}, "{{ hint_empty }}", "{{ form_field_n_wrong_attempts }}", {{ set_correct_answers }});
+});
+</script>
+{% endblock %}

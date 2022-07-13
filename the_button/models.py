@@ -97,7 +97,34 @@ class Player(BasePlayer):
                                       blank=True)
     q_feedback_pilot = models.LongStringField(label="If you found any instructions unclear or confusing, please let us know here.",
                                             blank=True)
+    browser = models.StringField()
+    understanding_questions_wrong_attempts = models.PositiveIntegerField()  # for all tasks
+    uq_wrong_dana = models.PositiveIntegerField()  # storing UQ Dana
 
+    def store_uq_dana(self):
+        self.uq_wrong_dana = self.understanding_questions_wrong_attempts
+
+
+    def get_questions_method(self):
+        questions = [
+            {
+                'question': 'In the table my bonus payment is denoted in',
+                'options': ['Red', 'Blue'],
+                'correct': 'Blue',
+            },
+            {
+                'question': 'If you choose A, the Red Cross obtains a bonus of',
+                'options': ['10 pence', '20 pence', '40 pence'],
+                'correct': '20 pence',
+            },
+            {
+                'question': 'If you choose B, you earn a bonus of',
+                'options': ['10 pence', '30 pence', '20 pence'],
+                'correct': '30 pence',
+            },
+
+        ]
+        return questions
 
 
     def set_payoffs(self):
