@@ -94,7 +94,7 @@ function deactivate() {
       <button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivate()"> Select Option A</button>
             <button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime();deactivate()"> Select Option B</button>
 
-            <input type="button"  id="secondaryButton" onclick="document.getElementById('danat').click(); storeTime()" />
+            <input type="hidden"  id="secondaryButton" value="A" onclick="document.getElementsByName('danat')[0].click(); storeTime()" />
 
    </div></div></div>
 
