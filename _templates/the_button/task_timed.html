@@ -29,7 +29,16 @@ function deactivateA() {
 }
 </script>
 
+<script >const btn = document.getElementById('btn');
 
+btn.addEventListener('click', () => {
+
+  btn.style.visibility = 'hidden';
+
+
+  const box = document.getElementById('box');
+  box.style.visibility = 'visible';
+});</script>
 
         <script>
         let customTimerEle = document.getElementById('mins-left');
@@ -107,6 +116,6 @@ function deactivateA() {
 
     <button id="btn">Click me</button>
 
-    <script src="index.js"></script>
+
 
 {% endblock %}
