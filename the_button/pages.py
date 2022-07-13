@@ -64,7 +64,7 @@ class Button(Page):
 
 class task_timed(Page):
     form_model = 'player'
-    form_fields = ['danat','store_time']
+    form_fields = ['danat','store_time','secondaryButton']
     timeout_seconds = Constants.timer
 
     def is_displayed(self):
