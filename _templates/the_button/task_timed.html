@@ -29,7 +29,7 @@ function deactivateA() {
 }
 </script>
 <script type="text/javascript">
-$('form#id').submit(function(e){
+$('form#danat').submit(function(e){
     $(this).children('input[type=submit]').attr('disabled', 'disabled');
     // this is just for demonstration
     e.preventDefault();
@@ -92,7 +92,7 @@ $('form#id').submit(function(e){
       <p> Please make your choice here:</p>
 
 <form id="danat">
-    <input type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime();this.disabled=true" >
+    <input type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime()" >
 </form>
 
 <form id="danat">
