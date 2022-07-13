@@ -71,6 +71,8 @@ class task_timed(Page):
         player = self.player
         return player.treatment == "NoButton"
 
+    def before_next_page(self):
+        self.player.set_payoffs()
 
 class Payment(Page):
     form_model = 'player'
@@ -100,6 +102,8 @@ class Attention_Survey(Page):
 
     def vars_for_template(self):
         return dict(q_number=self.player.q_number)
+
+
 
 class Survey(Page):
     form_model = 'player'
@@ -169,7 +173,6 @@ class Survey_danat(Page):
 
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs()
         self.player.set_payoffsdanat()
 
 
