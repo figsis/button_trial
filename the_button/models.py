@@ -51,7 +51,7 @@ class Subsession(BaseSubsession):
             player.participant.vars["payoff2_self_danat"] = ""
             player.participant.vars["payoff2_charity_danat"] = ""
             player.participant.vars["bonus"] = ""
-            player.participant.vars["danat"] = ""
+            #player.participant.vars["danat"] = ""
         #    player.participant.vars["too_long"] = False
 
 
@@ -73,7 +73,7 @@ class Player(BasePlayer):
     payoff4 = models.FloatField()
     #payoff2o = models.IntegerField()
     payoff2_charity = models.IntegerField()  # payoff task 2 (button)
-    danat = models.StringField(blank=False)  # whether participant takes selfish choice in Dana timed task
+    danat = models.StringField(blank=True)  # whether participant takes selfish choice in Dana timed task
     payoff2_self_danat = models.IntegerField()  # payoff dana_timed
     payoff2_charity_danat = models.IntegerField()  # payoff dana_timed
     #total_payoff = models.FloatField()

@@ -67,7 +67,6 @@ class task_timed(Page):
     form_fields = ['danat','store_time']
     timeout_seconds = Constants.timer
 
-
     def is_displayed(self):
         player = self.player
         return player.treatment == "NoButton"
@@ -158,7 +157,7 @@ class Survey_danat(Page):
                     payoff2_self_danat=self.participant.vars["payoff2_self_danat"])
 
     def get_form_fields(self):
-        if self.participant.vars["payoff1_self"] ==  self.player.payoff2_self_danat:
+        if self.participant.vars["payoff1_self"] == self.player.payoff2_self_danat:
             return ['q_nochange']
         elif self.participant.vars["payoff1_self"] != self.player.payoff2_self_danat:
             return ['q_change']
@@ -169,48 +168,15 @@ class Survey_danat(Page):
         return player.treatment == "NoButton"
 
     def before_next_page(self):
-        self.player.set_payoffs()
         self.player.set_bonus()
+        self.player.set_payoffs()
         self.player.set_payoffsdanat()
+
 
 class Comments(Page):
     form_model = 'player'
     form_fields = ['q_feedback', 'q_feedback_pilot']
 
-#class PaymentSelected(Page):
-    #    form_model = 'player'
-
-    #def vars_for_template(self):
-        #   try:
-        #   if self.player.participant.vars["payoff2_charity"] == 0:
-        #       payoff2_charity_neg = False
-        #   elif self.player.participant.vars["payoff2_charity"][:1] == "-":
-        #       payoff2_charity_neg = True
-        #   else:
-        #       payoff2_charity_neg = False
-        #except TypeError:
-        #   payoff2_charity_neg = False
-        #   print('typerror, but ', self.player.participant.vars["payoff2_charity"], ' = payoff2_charity')
-        #return dict(
-        #   payoff1_self=self.player.participant.vars["payoff1_self"],
-        #   payoff1_charity=self.player.participant.vars["payoff1_charity"],
-        #   payoff2_self=self.player.participant.vars["payoff2_self"],
-        #   payoff2_charity=self.player.participant.vars["payoff2_charity"],
-        #   payoff2_charity_neg=payoff2_charity_neg,
-        #   selected=self.player.selected,
-        #   punished=self.player.punished,
-        #   punishment=self.player.punishment,
-#   button=self.player.button)
-
-
-#class BackToProlific(Page):
-    #   form_model = 'player'
-
-    #def dispatch(self, request, *args, **kwargs):
-        #   if request.method == 'GET':
-        #   address = "https://app.prolific.co/submissions/complete?cc=52C82836"
-        #   return HttpResponseRedirect(address)
-        #return super(Page, self).dispatch(request, *args, **kwargs)
 
 
 page_sequence = [SummaryTask1_,
