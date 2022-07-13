@@ -29,10 +29,14 @@ function deactivateA() {
 }
 </script>
 
-<script >
-    $('form#id').submit(function(e){
-    $(this).children('input[type=submit]').attr('disabled', 'disabled');
-});
+<script type="text/javascript">
+    var button = document.getElementById('danat')
+    button.addEventListener('click',hideshow,false);
+
+    function hideshow() {
+        document.getElementById('hidden-div').style.display = 'block';
+        this.style.display = 'none'
+    }
 </script>
 
         <script>
@@ -91,11 +95,9 @@ function deactivateA() {
 
       <button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();this.disabled=true"> Select Option A</button>
       <button type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime()"> Select Option B</button>
-<form id="id">
-    <input type="submit" type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();this.disabled=true"/>
-</form>
 
    </div></div></div>
+<button id="danat">Check Availability</button>
 
 
 
