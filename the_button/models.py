@@ -81,7 +81,7 @@ class Player(BasePlayer):
     payoff2_charity_danat = models.IntegerField()  # payoff dana_timed
     #total_payoff = models.FloatField()
     # How strong was the temptation to press the button?
-    q0 = models.IntegerField(label='How strong was the temptation to press the button? 0: not tempting at al. 10: very tempting. ', choices=[0,1, 2, 3, 4, 5, 6, 7, 8, 9,10],
+    q0 = models.IntegerField(label='How strong was the temptation to press the button? (0: not tempting at all, 10: very tempting) ', choices=[0,1, 2, 3, 4, 5, 6, 7, 8, 9,10],
         widget=widgets.RadioSelectHorizontal)
     #Reasons to press
     q1 = models.LongStringField(label='Why did you decide to press the button?')

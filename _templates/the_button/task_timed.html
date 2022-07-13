@@ -36,6 +36,14 @@ function deactivate() {
    return true;
 }
 </script>
+<script type="text/javascript">
+
+function required() {
+   document.getElementsByName('danat')[0].required = true;
+   document.getElementsByName('danat')[1].required = true;
+   return true;
+}
+</script>
 
         <script>
         let customTimerEle = document.getElementById('mins-left');
@@ -100,8 +108,8 @@ function deactivate() {
 
       <p> Please make your choice here:</p>
 
-<button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivate();this.required=true"> Select Option A</button>
-<button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTimeB();deactivate();this.required=true"> Select Option B</button>
+<button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivate();required()"> Select Option A</button>
+<button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTimeB();deactivate();required()"> Select Option B</button>
 <input hidden id="secondary_button" name="secondary_button">
 <input hidden id="store_timeA" name="store_timeA">
 <input hidden id="store_timeB" name="store_timeB">
