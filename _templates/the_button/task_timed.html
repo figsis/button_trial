@@ -28,14 +28,9 @@ function deactivateA() {
    return true;
 }
 </script>
-<script>
-    function deactivateBB() {
-document.getElementsByName('danat')[0].onsubmit = function() {
-    document.getElementsByName('danat')[1].disabled = true;
-       return true;
-}}
 
-</script>
+
+
         <script>
         let customTimerEle = document.getElementById('mins-left');
         let customTimer2 = document.getElementById('secs-left');
@@ -90,12 +85,28 @@ document.getElementsByName('danat')[0].onsubmit = function() {
 
       <p> Please make your choice here:</p>
 
-      <button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();this.form.submit(); deactivateB()"> Select Option A</button>
+      <button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime(); deactivateB()"> Select Option A</button>
 
-      <button type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime();this.form.submit(); deactivateA()"> Select Option B</button>
+      <button type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime(); deactivateA()"> Select Option B</button>
 
 
    </div></div></div>
 
+
+    <div
+      id="box"
+      style="
+        height: 100px;
+        width: 100px;
+        background-color: salmon;
+        visibility: hidden;
+      "
+    >
+      Box
+    </div>
+
+    <button id="btn">Click me</button>
+
+    <script src="index.js"></script>
 
 {% endblock %}
