@@ -114,11 +114,11 @@ class Player(BasePlayer):
                     self.payoff2_charity = Constants.optionA[1]
             elif self.session.vars["treatment"] == "NoButton":
                 if self.secondary_button == "A":
-                    self.payoff2_self_danat = Constants.dana2A_self
-                    self.payoff2_charity_danat = Constants.dana2A_other
+                    self.payoff2_self_danat = 10
+                    self.payoff2_charity_danat = 0
                 elif self.secondary_button  == "B":
-                    self.payoff2_self_danat = Constants.dana2B_self
-                    self.payoff2_charity_danat = Constants.dana2B_other
+                    self.payoff2_self_danat = 5
+                    self.payoff2_charity_danat = 15
 
 
     def set_bonus(self):
