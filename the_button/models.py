@@ -199,14 +199,14 @@ class Player(BasePlayer):
     def set_payoffsdanat(self):
         if self.treatment == "NoButton":
             if self.selected ==1:
-                if self.danat == "A":
+                if self.secondary_button == "A":
                     if self.q_number == 100:
                         self.payoff3 =10.5
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
                     elif self.q_number !=100 :
                         self.payoff3 = 10
                         self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-                if self.danat == "B":
+                if self.secondary_button == "B":
                     if self.q_number == 100:
                         self.payoff3 =5.5
                         self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
@@ -214,14 +214,14 @@ class Player(BasePlayer):
                         self.payoff3 = 5
                         self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
             elif self.selected == 0:
-                if self.danat == "A":
+                if self.secondary_button == "A":
                     if self.q_number == 100:
                         self.payoff3 = 0.5
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
                     elif self.q_number != 100:
                         self.payoff3 = 0
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
-                if self.danat == "B":
+                if self.secondary_button == "B":
                     if self.q_number == 100:
                         self.payoff3 = 0.5
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
