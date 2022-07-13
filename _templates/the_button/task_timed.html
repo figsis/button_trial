@@ -59,13 +59,11 @@ function deactivate() {
         function storeTimeA(){
             console.log("hallo", customTimer.innerText);
             document.getElementById('store_timeA').value = customTimer.innerText;
-            document.getElementsById('secondaryButton').value == 1 ;
         }
 
         function storeTimeB(){
             console.log("hallo", customTimer.innerText);
             document.getElementById('store_timeB').value = customTimer.innerText;
-            document.getElementsById('secondaryButton').value == 0;
         }
 
 
@@ -108,7 +106,7 @@ function deactivate() {
       <button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTimeA();deactivate()"> Select Option A</button>
             <button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTimeB();deactivate()"> Select Option B</button>
 
-            <input type="hidden" name= "secondaryButton" id="secondaryButton"/>
+
 
    </div></div></div>
 {{ form.secondaryButton.errors }}
