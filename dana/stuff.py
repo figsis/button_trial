@@ -1,11 +1,14 @@
 """
 oTree page extensions.
-
 Sept. 2018, Markus Konrad <markus.konrad@wzb.eu>
 """
+
+
 import settings
+
 from django import forms
-from django.utils.translation import gettext as _
+from django.utils.translation import ugettext as _
+
 from otree.api import Page, WaitPage
 
 APPS_DEBUG = getattr(settings, 'APPS_DEBUG', False)
@@ -101,7 +104,7 @@ class UnderstandingQuestionsPage(ExtendedPage):
 
     def get_form_fields(self):
         if self.form_model:
-            form_fields = super()#.get_form_fields()
+            form_fields = super().get_form_fields()
 
             if self.form_field_n_wrong_attempts:  # update form fields
                 form_fields.append(self.form_field_n_wrong_attempts)

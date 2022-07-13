@@ -32,5 +32,4 @@ page_sequence = [
     InstructionsTask1,
     Task1,
 
-    # SummaryTask1
 ]
