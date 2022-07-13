@@ -64,6 +64,12 @@ function deactivate() {
 
         }
 
+        let nameVal = document.getElementByNId("danat").value;
+        if(nameVal == null || nameVal == "") {
+            document.getElementsByClassName("errorMessage")[0].style.visibility = "visible";
+            document.getElementsByClassName("errorMessage")[0].innerHTML = "Please Fill out this field";
+        }
+
         function storeTimeB(){
             console.log("hallo now at B", customTimer.innerText);
             document.getElementById('secondary_button').value = "B";
@@ -108,6 +114,7 @@ function deactivate() {
 
 <button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivate()"> Select Option A</button>
 <button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTimeB();deactivate()"> Select Option B</button>
+<p class = "errorMessage top-arrow" > </p>
 <input hidden id="secondary_button" name="secondary_button">
 <input hidden id="store_timeA" name="store_timeA">
 <input hidden id="store_timeB" name="store_timeB">
