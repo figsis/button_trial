@@ -28,6 +28,15 @@ function deactivateA() {
    return true;
 }
 </script>
+<script type="text/javascript">
+$('form#id').submit(function(e){
+    $(this).children('input[type=submit]').attr('disabled', 'disabled');
+    // this is just for demonstration
+    e.preventDefault();
+    return false;
+});
+</script>
+
         <script>
         let customTimerEle = document.getElementById('mins-left');
         let customTimer2 = document.getElementById('secs-left');
@@ -81,9 +90,14 @@ function deactivateA() {
 
 
       <p> Please make your choice here:</p>
-      <input type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime(); deactivateB();this.disabled=true">
-      <input type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime(); deactivateA();this.disabled=true">
 
+<form id="danat">
+    <input type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime()" >
+</form>
+
+<form id="danat">
+    <input type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime()" >
+</form>
    </div></div></div>
 
 
