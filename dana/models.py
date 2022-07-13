@@ -58,13 +58,13 @@ class Player(BasePlayer):
             },
             {
                 'question': 'If you choose A, the Red Cross obtains a bonus of',
-                'options': ['10 pence', '20 pence', '40 pence'],
-                'correct': '20 pence',
+                'options': ['5 euros', '10 euros', '7 euros'],
+                'correct': '5 euros',
             },
             {
                 'question': 'If you choose B, you earn a bonus of',
-                'options': ['10 pence', '30 pence', '20 pence'],
-                'correct': '30 pence',
+                'options': ['5 euros', '7 euros', '10 euros'],
+                'correct': '5 euros',
             },
 
         ]
