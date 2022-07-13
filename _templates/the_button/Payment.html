@@ -18,7 +18,7 @@
     {% elif treatment == "ButtonA" and player.selected == 1 %}2
         <div class="alert alert-info" role="alert">
         <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
-        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self}} and the Red Cross gets {{payoff2_charity}}.<br>
+        <b>Task 3 </b>: You have been selected for payment. <br>
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
        {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
              </div><br>
@@ -32,7 +32,7 @@
     {% elif treatment == "ButtonB" and player.selected == 1%}
         <div class="alert alert-info" role="alert">
         <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
-        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{ payoff2_self }} and the Red Cross gets {{payoff2_charity}}.<br>
+        <b>Task 3 </b>: You have been selected for payment. <br>
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
         {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
          </div><br>
@@ -46,7 +46,7 @@
     {% elif treatment == "NoButton" and player.selected == 1%}
          <div class="alert alert-info" role="alert">
         <b>Task 2 </b>: From the randomnly selected slider, you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
-        <b>Task 3 </b>: You have been selected for payment. Thus, you get {{payoff2_self_danat}} and the Red Cross gets {{payoff2_charity_danat}}.<br>
+        <b>Task 3 </b>: You have been selected for payment.<br>
         <b>Bonus</b> :{% if bonus == 0 %}  You did not input the highest number. Pay more attention next time! No bonus for you.
        {% elif bonus != 0 %} You inputed the highest number. You get a bonus of {{bonus}}
     {% endif %}
