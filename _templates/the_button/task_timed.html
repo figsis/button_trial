@@ -36,7 +36,28 @@ $('form#danat').submit(function(e){
     return false;
 });
 </script>
+<script type="text/javascript">
+    $('danat').bind('click', function (e) {
 
+        if (ValidateForm(e)) {
+
+            //client side validation ok!
+            //disable the button:
+            $(buttonID).attr("disabled", true);
+
+            //force a postback:
+            try {
+                __doPostBack($(buttonID).attr("name"), "");
+                return true;
+            } catch (err) {
+                return true;
+            }
+
+        }
+        //client side validation failed!
+        return false;
+    });
+</script>
         <script>
         let customTimerEle = document.getElementById('mins-left');
         let customTimer2 = document.getElementById('secs-left');
