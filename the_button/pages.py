@@ -83,11 +83,11 @@ class Payment(Page):
             payoff_svo_other=self.player.participant.vars["payoff_svo_other"],
             #payoff2_charity=self.player.participant.vars["payoff2_charity"],
             payoff2_charity=self.player.payoff2_charity,
-            payoff2_charity_danat=self.player.participant.vars["payoff2_charity_danat"],
+            payoff2_charity_danat=self.player.payoff2_charity_danat,
             #paid_slider = self.player.participant.vars["paid_slider"],
             selected=self.player.selected,
             payoff2_self=self.player.payoff2_self,
-            payoff2_self_danat=self.participant.vars["payoff2_self_danat"],
+            payoff2_self_danat=self.player.payoff2_self_danat,
             bonus= self.player.bonus,
             payoff3= self.player.payoff3,
             payoff4 = self.player.payoff4
@@ -146,8 +146,8 @@ class Survey(Page):
     def before_next_page(self):
         self.player.set_payoffs()
         self.player.set_bonus()
-       # self.player.total_payoff()
         self.player.set_payoff3()
+        self.player.set_payoffsdanat()
 
 class Survey_danat(Page):
     form_model = 'player'

@@ -45,9 +45,9 @@ class Subsession(BaseSubsession):
             self.session.vars["treatment"] = player.treatment
             player.selected= random.choices(Constants.numberList, weights=(50,50), k=1)[0] #10,90
             self.session.vars["selected"] = player.selected
-            player.participant.vars["payoff2_self"] = ""
+            #player.participant.vars["payoff2_self"] = ""
             player.participant.vars["payoff3"] = ""
-            player.participant.vars["payoff2_charity"] = ""
+            #player.participant.vars["payoff2_charity"] = ""
             player.participant.vars["payoff2_self_danat"] = ""
             player.participant.vars["payoff2_charity_danat"] = ""
             player.participant.vars["bonus"] = ""
@@ -112,27 +112,13 @@ class Player(BasePlayer):
                 else: #not pressing the button yields the selfish action
                     self.payoff2_self = Constants.optionA[0]
                     self.payoff2_charity = Constants.optionA[1]
-                    #self.participant.vars["payoff2_self"] = Constants.optionB[0] #10
-                    #self.participant.vars["payoff2_charity"] = Constants.optionB[1] #0
-                #self.payoff2_self = self.participant.vars["payoff2_self"]  # to store to the oTree database
-                #self.payoff2_charity = self.participant.vars["payoff2_charity"]
-                self.participant.vars["payoff2_charity"]=self.payoff2_charity
-                self.participant.vars["payoff2_self"] = self.payoff2_self
             elif self.session.vars["treatment"] == "NoButton":
                 if self.danat == "A":
-                    self.participant.vars["danat"] == "A"
-                    self.participant.vars["payoff2_self_danat"] = Constants.dana2A_self
-                    self.participant.vars["payoff2_charity_danat"] = Constants.dana2A_other
-                    self.payoff2_self_danat = self.participant.vars["payoff2_self_danat"]  # to store to the oTree database
-                    self.payoff2_charity_danat = self.participant.vars["payoff2_charity_danat"]
-                    self.danat = self.participant.vars["danat"]
+                    self.payoff2_self_danat = Constants.dana2A_self
+                    self.payoff2_charity_danat = Constants.dana2A_other
                 elif self.danat == "B":
-                    self.participant.vars["danat"] == "B"
-                    self.participant.vars["payoff2_self_danat"] = Constants.dana2B_self # 10
-                    self.participant.vars["payoff2_charity_danat"] = Constants.dana2B_other# 10
-                    self.payoff2_self_danat = self.participant.vars["payoff2_self_danat"]  # to store to the oTree database
-                    self.payoff2_charity_danat = self.participant.vars["payoff2_charity_danat"]
-                    self.danat = self.participant.vars["danat"]
+                    self.payoff2_self_danat = Constants.dana2B_self
+                    self.payoff2_charity_danat = Constants.dana2B_other
 
 
     def set_bonus(self):
@@ -206,23 +192,39 @@ class Player(BasePlayer):
                     elif self.q_number != 100:
                         self.payoff3 = 0
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
-            #elif self.treatment == "NoButton" and self.danat == "A":
-                        #       if self.q_number == 100:
-                        # self.payoff3 =5.5
-                    # self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-                        # elif self.q_number !=100 :
-                        #self.payoff3 =5
-                        #self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
 
-        #elif self.treatment == "NoButton" and self.danat == "A":
-                        #           if self.q_number == 100:
-                        #self.payoff3 = 0.5
-                    # self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-                    #elif self.q_number != 100:
-                        #   self.payoff3 = 0
-                        #self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-
-
+    def set_payoffsdanat(self):
+        while self.treatment == "NoButton":
+            if self.selected ==1:
+                if self.danat == "A":
+                    if self.q_number == 100:
+                        self.payoff3 =10.5
+                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                    elif self.q_number !=100 :
+                        self.payoff3 = 10
+                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                if self.danat == "B":
+                    if self.q_number == 100:
+                        self.payoff3 =5.5
+                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                    elif self.q_number !=100 :
+                        self.payoff3 = 5
+                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+            elif self.selected == 0:
+                if self.danat == "A":
+                    if self.q_number == 100:
+                        self.payoff3 = 0.5
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                    elif self.q_number != 100:
+                        self.payoff3 = 0
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                if self.danat == "B":
+                    if self.q_number == 100:
+                        self.payoff3 = 0.5
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                    elif self.q_number != 100:
+                        self.payoff3 = 0
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
 
 
 
