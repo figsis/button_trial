@@ -48,8 +48,8 @@ class Subsession(BaseSubsession):
             #player.participant.vars["payoff2_self"] = ""
             player.participant.vars["payoff3"] = ""
             #player.participant.vars["payoff2_charity"] = ""
-            player.participant.vars["payoff2_self_danat"] = ""
-            player.participant.vars["payoff2_charity_danat"] = ""
+            #player.participant.vars["payoff2_self_danat"] = ""
+            #player.participant.vars["payoff2_charity_danat"] = ""
             player.participant.vars["bonus"] = ""
             #player.participant.vars["danat"] = ""
         #    player.participant.vars["too_long"] = False
@@ -71,7 +71,6 @@ class Player(BasePlayer):
     payoff2_self = models.IntegerField()  # payoff task 2 (button)
     # payoff2 = models.IntegerField()
     payoff3 = models.FloatField()
-
     payoff4 = models.FloatField()
     #payoff2o = models.IntegerField()
     payoff2_charity = models.IntegerField()  # payoff task 2 (button)
@@ -101,7 +100,7 @@ class Player(BasePlayer):
     def set_payoffs(self):
             if self.treatment == "ButtonA":
                 if self.store_time != 0:
-                    self.payoff2_self=Constants.optionB[0]
+                    self.payoff2_self = Constants.optionB[0]
                     self.payoff2_charity = Constants.optionB[1]
                 elif self.store_time == 0:
                     self.payoff2_self = Constants.optionA[0]
@@ -114,10 +113,10 @@ class Player(BasePlayer):
                     self.payoff2_self = Constants.optionA[0]
                     self.payoff2_charity = Constants.optionA[1]
             elif self.session.vars["treatment"] == "NoButton":
-                if self.danat == "A":
+                if self.secondary_button == "A":
                     self.payoff2_self_danat = Constants.dana2A_self
                     self.payoff2_charity_danat = Constants.dana2A_other
-                elif self.danat == "B":
+                elif self.secondary_button  == "B":
                     self.payoff2_self_danat = Constants.dana2B_self
                     self.payoff2_charity_danat = Constants.dana2B_other
 
