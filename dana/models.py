@@ -37,7 +37,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-
     timeSpent = models.FloatField()
     task1 = models.StringField(blank=True)  # whether participant takes selfish choice in Dana task
     payoff1_self = models.IntegerField()  # payoff task 1 (dana)

@@ -87,8 +87,8 @@ class Player(BasePlayer):
     q1 = models.LongStringField(label='Why did you decide to press the button?')
     q2 = models.LongStringField(label='Why did you decide not to press the button?')
     #Why did you change/did not change your final decision? In all treatments every time a discrepancy between decisions.
-    q_change = models.LongStringField(label='Why did you change your mind?')
-    q_nochange = models.LongStringField(label='Why did you not change your mind?' )
+    q_change = models.LongStringField(label='Why did you change your mind when you were given more time to think about the decision in Task 3?')
+    q_nochange = models.LongStringField(label='Why did not you change your mind when you were given more time to think about the decision in Task 3?')
     #What was the highest number that you saw appear on screen?
     q_number = models.IntegerField(label="What was the highest number that you saw appearing on screen?")
     selected = models.IntegerField()
