@@ -61,7 +61,8 @@ function deactivate() {
             document.getElementById('store_timeA').value = customTimer.innerText;
             document.getElementsById('secondaryButton').value == 1 ;
         }
-                function storeTimeB(){
+
+        function storeTimeB(){
             console.log("hallo", customTimer.innerText);
             document.getElementById('store_timeB').value = customTimer.innerText;
             document.getElementsById('secondaryButton').value == 0;
@@ -81,9 +82,8 @@ function deactivate() {
         </script>{% endblock %}
 
 {% block content %}
-    //<input type="hidden" name="store_time" id="store_time" />
-<input type="hidden" name="store_timeA" id="store_timeA" />
-<input type="hidden" name="store_timeB" id="store_timeB" />
+    <input type="hidden" name="store_timeA" id="store_timeA" />
+    <input type="hidden" name="store_timeB" id="store_timeB" />
 
 <div class="alert alert-secondary" role="alert">
   This page will automatically submit in <b>
