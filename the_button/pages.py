@@ -105,7 +105,10 @@ class Survey(Page):
     form_model = 'player'
     form_fields = []
 
-
+    def vars_for_template(self):
+        return dict(payoff1_self=self.player.participant.vars["payoff1_self"],
+                    payoff2_self=self.player.payoff2_self,
+                    store_time = self.player.store_time)
 
     def is_displayed(self):
         player = self.player
