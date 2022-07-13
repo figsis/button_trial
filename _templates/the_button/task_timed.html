@@ -37,7 +37,24 @@ function deactivate() {
 }
 </script>
 <script type="text/javascript">
-   document.getElementById("danat").required=true
+        let btns = document.querySelectorAll('#danat');
+        let selectedValue = '';
+        btns.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                let option = e.target.value;
+                selectedValue = option;
+            });
+        });
+
+        document.getElementById('myform').addEventListener('submit', function (e) {
+            if (selectedValue === '') {
+                alert('Please select an option');
+                e.preventDefault();
+            } else {
+                alert('You selected ' + selectedValue);
+            }
+
+        });
 </script>
 
         <script>
@@ -104,20 +121,11 @@ function deactivate() {
 
 
 
-<form>
-  Select:<br>
-
-  <label>
-    <input type="radio" name="danat" id="danat"  value="B" required>
-    B
-  </label><br>
-
-  <label>
-    <input type="radio" name="danat" id="danat" value="A">
-   A
-  </label><br>
-  <input type="submit" onclick="storeTime();this.disabled=true">
-</form>
+    <form method="post" id="myform">
+        <button name="danat" id="danat" value="A"> Select Option A</button>
+        <button name="danat" id="danat" value="B"> Select Option B</button>
+        <input type="submit" name="submit" value="Submit" required/>
+    </form>
 
 <input hidden id="secondary_button" name="secondary_button" >
 <input hidden id="store_timeA" name="store_timeA">
