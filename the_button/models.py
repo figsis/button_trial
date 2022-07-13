@@ -145,79 +145,82 @@ class Player(BasePlayer):
 
     def set_payoff3(self):
         if self.selected == 1:
-            if self.treatment == "ButtonA" and self.store_time !=0: #treatment A and press
+            if self.store_time != 0:
+                if self.treatment == "ButtonA":  #treatment A and press
                     if self.q_number == 100:
                         self.payoff3 = 10.5
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
                     elif self.q_number != 100:
                         self.payoff3 = 10
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
-            elif self.treatment == "ButtonA" and self.store_time == 0: #treatment A and not press
+                elif self.treatment == "ButtonB":  # treatment B and press
+                    if self.q_number == 100:
+                        self.payoff3 = 5.5
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                    elif  self.q_number != 100:
+                        self.payoff3=5
+                        self.payoff4 = self.payoff3+ float(self.participant.vars["payoff_svo"])
+            else: #button not pressed
+                if self.treatment == "ButtonA": #treatment A and not press
                     if self.q_number == 100:
                         self.payoff3 = 5.5
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
                     elif self.q_number != 100:
                         self.payoff3 = 5
                         self.payoff4 = self.payoff3+ float(self.participant.vars["payoff_svo"])
-
-            elif self.treatment == "ButtonB" and self.store_time!=0: #treatment B and press
-                    if self.q_number == 100:
-                        self.payoff3 = 5.5
-                        self.payoff4  = self.payoff3+ float(self.participant.vars["payoff_svo"])
-                        #self.payoff3 = float(self.participant.vars["payoff3"])
-                    elif  self.q_number != 100:
-                        self.payoff3=5
-                        self.payoff4 = self.payoff3+ float(self.participant.vars["payoff_svo"])
-            elif self.treatment == "ButtonB" and self.store_time == 0:  # treatment B and  not press
+                elif self.treatment == "ButtonB":  # treatment B and  not press
                     if self.q_number == 100:
                         self.payoff3 = 10.5
                         self.payoff4  = self.payoff3+ float(self.participant.vars["payoff_svo"])
                     elif self.q_number != 100:
                         self.payoff3 = 10
                         self.payoff4 = self.payoff3+float(self.participant.vars["payoff_svo"])
-            elif self.treatment == "NoButton" and self.danat == "A":
-                    if self.q_number == 100:
-                        self.payoff3 =5.5
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-                    elif self.q_number !=100 :
-                        self.payoff3 =5
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
         elif self.selected == 0:
-            if self.treatment == "ButtonA" and self.store_time != 0:  # treatment A and press
-                    if self.q_number == 100:
-                        self.payoff3 = 0.5
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-                    elif self.q_number != 100:
-                        self.payoff3 = 0
-                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
-        elif self.treatment == "ButtonA" and self.store_time == 0:  # treatment A and not press
-                    if self.q_number == 100:
-                        self.payoff3 = 0.5
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-                    elif self.q_number != 100:
-                        self.payoff3 = 0
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-        elif self.treatment == "ButtonB" and self.store_time != 0:  # treatment B and press
-                    if self.q_number == 100:
-                        self.payoff3 = 0.5
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-                    elif self.q_number != 100:
-                        self.payoff3 = 0
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-        elif self.treatment == "ButtonB" and self.store_time == 0:  # treatment B and  not press
+            if self.store_time != 0:
+                if self.treatment == "ButtonA": # treatment A and press
                     if self.q_number == 100:
                         self.payoff3 = 0.5
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
                     elif self.q_number != 100:
                         self.payoff3 = 0
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
-        elif self.treatment == "NoButton" and self.danat == "A":
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                elif self.treatment == "ButtonB":  # treatment B and press
                     if self.q_number == 100:
                         self.payoff3 = 0.5
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
                     elif self.q_number != 100:
                         self.payoff3 = 0
-                        self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+            else:
+                if self.treatment == "ButtonA": # treatment A and not press
+                    if self.q_number == 100:
+                        self.payoff3 = 0.5
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                    elif self.q_number != 100:
+                        self.payoff3 = 0
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                elif self.treatment == "ButtonB":  # treatment B and  not press
+                    if self.q_number == 100:
+                        self.payoff3 = 0.5
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                    elif self.q_number != 100:
+                        self.payoff3 = 0
+                        self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+            #elif self.treatment == "NoButton" and self.danat == "A":
+                        #       if self.q_number == 100:
+                        # self.payoff3 =5.5
+                    # self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                        # elif self.q_number !=100 :
+                        #self.payoff3 =5
+                        #self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+
+        #elif self.treatment == "NoButton" and self.danat == "A":
+                        #           if self.q_number == 100:
+                        #self.payoff3 = 0.5
+                    # self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
+                    #elif self.q_number != 100:
+                        #   self.payoff3 = 0
+                        #self.payoff4  = self.payoff3 + float(self.participant.vars["payoff_svo"])
 
 
 
