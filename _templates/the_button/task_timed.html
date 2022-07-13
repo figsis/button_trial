@@ -29,9 +29,12 @@ function deactivateA() {
 }
 </script>
 <script>
-document.getElementById('danat').onsubmit = function() {
-    document.getElementById('danat').disabled = true;
-};
+    function deactivateBB() {
+document.getElementsByName('danat')[0].onsubmit = function() {
+    document.getElementsByName('danat')[1].disabled = true;
+       return true;
+}}
+
 </script>
         <script>
         let customTimerEle = document.getElementById('mins-left');
@@ -87,7 +90,7 @@ document.getElementById('danat').onsubmit = function() {
 
       <p> Please make your choice here:</p>
 
-      <button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime()"> Select Option A</button>
+      <button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime(); deactivateBB()"> Select Option A</button>
 
       <button type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime()"> Select Option B</button>
 
