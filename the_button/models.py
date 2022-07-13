@@ -66,6 +66,8 @@ class Player(BasePlayer):
     button = models.BooleanField(initial=0)
     bonus = models.FloatField()
     store_time = models.FloatField()  # for the timer
+    store_timeA = models.FloatField()
+    store_timeB = models.FloatField()
     payoff2_self = models.IntegerField()  # payoff task 2 (button)
     # payoff2 = models.IntegerField()
     payoff3 = models.FloatField()
