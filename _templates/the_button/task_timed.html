@@ -37,23 +37,11 @@ function deactivate() {
 }
 </script>
 <script type="text/javascript">
- let options = document.querySelectorAll('.option');
-        let selectedValue = '';
 
-        document.getElementById('myform').addEventListener('submit', function (e) {
-            options.forEach(function (option) {
-                if (option.checked) {
-                    selectedValue = option.value;
-                }
-            });
-            if (selectedValue === '') {
-                alert('Please select an option');
-                e.preventDefault();
-            } else {
-                alert('You selected ' + selectedValue);
-            }
-
-        });
+function required() {
+   document.getElementById("danat").required = true;
+   return true;
+}
 </script>
 
         <script>
@@ -76,8 +64,6 @@ function deactivate() {
             document.getElementById('store_timeA').value = customTimer.innerText;
 
         }
-
-
 
         function storeTimeB(){
             console.log("hallo now at B", customTimer.innerText);
@@ -119,16 +105,11 @@ function deactivate() {
     <div class="clearfix"></div>
 
 
+      <p> Please make your choice here:</p>
 
-    <form method="post" id="myform">
-        <input type="radio" class="option" name="danat" id="danat" value="A" required> SELECT A
-        <br>
-        <input type="radio" class="option" name="danat" id="danat" value="B" required> SELECT B
-        <br>
-        <input type="submit" name="submit" value="Submit" />
-    </form>
-
-<input hidden id="secondary_button" name="secondary_button" >
+<button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivate();required()"> Select Option A</button>
+<button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTimeB();deactivate();required()"> Select Option B</button>
+<input hidden id="secondary_button" name="secondary_button">
 <input hidden id="store_timeA" name="store_timeA">
 <input hidden id="store_timeB" name="store_timeB">
 
