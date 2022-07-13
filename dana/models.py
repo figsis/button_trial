@@ -42,10 +42,36 @@ class Player(BasePlayer):
     task1 = models.StringField(blank=True)  # whether participant takes selfish choice in Dana task
     payoff1_self = models.IntegerField()  # payoff task 1 (dana)
     payoff1_charity = models.IntegerField()  # payoff task 1 (dana)
+    browser = models.StringField()
+    understanding_questions_wrong_attempts = models.PositiveIntegerField()  # for all tasks
+    uq_wrong_dana = models.PositiveIntegerField()  # storing UQ Dana
+
+    def store_uq_dana(self):
+        self.uq_wrong_dana = self.understanding_questions_wrong_attempts
+
+    def get_questions_method(self):
+        questions = [
+            {
+                'question': 'In the table my bonus payment is denoted in',
+                'options': ['Red', 'Blue'],
+                'correct': 'Blue',
+            },
+            {
+                'question': 'If you choose A, the Red Cross obtains a bonus of',
+                'options': ['10 pence', '20 pence', '40 pence'],
+                'correct': '20 pence',
+            },
+            {
+                'question': 'If you choose B, you earn a bonus of',
+                'options': ['10 pence', '30 pence', '20 pence'],
+                'correct': '30 pence',
+            },
+
+        ]
+        return questions
 
 
-
-    def set_payoffs1(self):   # payoffs Task 1 (Dana)
+def set_payoffs1(self):   # payoffs Task 1 (Dana)
         if self.task1 == "A":
             self.payoff1_self = Constants.danaA_self
             self.payoff1_charity = Constants.danaA_other
