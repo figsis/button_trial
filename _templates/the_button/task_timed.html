@@ -81,8 +81,8 @@ function deactivateA() {
 
 
       <p> Please make your choice here:</p>
-      <button type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime(); deactivateB()">Select option A</button>
-      <button  type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime(); deactivateA()">Select option B</button>
+      <input type="submit" name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime(); deactivateB();this.disabled=true">
+      <input type="submit" name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime(); deactivateA();this.disabled=true">
 
    </div></div></div>
 
