@@ -194,7 +194,7 @@ class Player(BasePlayer):
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
 
     def set_payoffsdanat(self):
-        while self.treatment == "NoButton":
+        if self.treatment == "NoButton":
             if self.selected ==1:
                 if self.danat == "A":
                     if self.q_number == 100:
@@ -225,6 +225,8 @@ class Player(BasePlayer):
                     elif self.q_number != 100:
                         self.payoff3 = 0
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
+        else:
+            pass
 
 
 

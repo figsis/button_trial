@@ -158,9 +158,9 @@ class Survey_danat(Page):
                     payoff2_self_danat=self.participant.vars["payoff2_self_danat"])
 
     def get_form_fields(self):
-        if self.participant.vars["payoff1_self"] ==  self.participant.vars["payoff2_self_danat"]:
+        if self.participant.vars["payoff1_self"] ==  self.player.payoff2_self_danat:
             return ['q_nochange']
-        elif self.participant.vars["payoff1_self"] != self.participant.vars["payoff2_self_danat"]:
+        elif self.participant.vars["payoff1_self"] != self.player.payoff2_self_danat:
             return ['q_change']
 
 
