@@ -90,7 +90,7 @@ class Player(BasePlayer):
     q_change = models.LongStringField(label='Why did you change your mind?')
     q_nochange = models.LongStringField(label='Why did you not change your mind?' )
     #What was the highest number that you saw appear on screen?
-    q_number = models.IntegerField(label="What was the highest number that you saw appearing on screen?", min=0, max=10000)
+    q_number = models.IntegerField(label="What was the highest number that you saw appearing on screen?")
     selected = models.IntegerField()
     q_feedback = models.LongStringField(label="This is the end of the survey. "
                                             "In case you have comments, please leave them here.",
