@@ -15,7 +15,7 @@ Task 4
 
 <script type="text/javascript">
 function deactivateB() {
-   document.getElementsByName('danat')[0].disabled = false;
+   document.getElementsByName('danat')[0].disabled = true;
    document.getElementsByName('danat')[1].disabled= true;
    return true;
 }
@@ -24,7 +24,7 @@ function deactivateB() {
 <script type="text/javascript">
 function deactivateA() {
    document.getElementsByName('danat')[0].disabled = true;
-   document.getElementsByName('danat')[1].disabled= false;
+   document.getElementsByName('danat')[1].disabled= true;
    return true;
 }
 </script>
@@ -83,8 +83,8 @@ function deactivateA() {
 
       <p> Please make your choice here:</p>
 
-      <button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();this.deactivateB()"> Select Option A</button>
-            <button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime();this.deactivateA()"> Select Option B</button>
+      <button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivateB()"> Select Option A</button>
+            <button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTime();deactivateA()"> Select Option B</button>
 
    </div></div></div>
 
