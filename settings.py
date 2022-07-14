@@ -11,6 +11,7 @@ SESSION_CONFIGS = [
 		 slider_init='LEFT',
 		 random_payoff='RAND',
 		 precision='INTEGERS',
+		 cc_code="CCCODE",
 		 doc=''),
 	dict(name='Button_nosvo',
 		 app_sequence=['dana', 'the_button'],
