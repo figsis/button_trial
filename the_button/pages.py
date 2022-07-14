@@ -70,7 +70,9 @@ class task_timed(Page):
     def is_displayed(self):
         player = self.player
         return player.treatment == "NoButton"
-
+    def error_message(self):
+        if self.player.secondary_button == "" or self.player.secondary_button == None:
+            return 'Please select an option'
 
 
 class Payment(Page):

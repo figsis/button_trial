@@ -3,7 +3,7 @@
 
 
 {% block title %}
-Task 4
+End of Task 3
 {% endblock %}
 
 {% block styles %}
@@ -75,17 +75,16 @@ function required() {
             document.getElementById('secondary_button').value = "B";
             document.getElementById('store_timeB').value = customTimer.innerText;
         }
-
-
         setTimeout(function() {$(".content").fadeOut(1500);}, 3000)
         setTimeout(function() {$(".content1").fadeIn(1500);}, 30000); //30 seconds
-        setTimeout(function() {$(".content1").fadeOut(1500);},33000); //lasts for 2 seconds
-        setTimeout(function() {$(".content2").fadeIn(1500);},110000);  //1 min 50 seconds
-        setTimeout(function() {$(".content2").fadeOut(1500);},113000); //lasts for 2 seconds
-        setTimeout(function() {$(".content3").fadeIn(1500);},130000);   //2 min 10 seconds
-        setTimeout(function() {$(".content3").fadeOut(1500);},133000);  //lasts for 2 seconds
-        setTimeout(function() {$(".content4").fadeIn(1500);},170000);  //2 min 50 seconds
-        setTimeout(function() {$(".content4").fadeOut(1500);},173000); //lasts for 2 seconds
+        setTimeout(function() {$(".content1").fadeOut(1500);},34000); //lasts for 4 seconds
+        setTimeout(function() {$(".content2").fadeIn(1500);},80000);  //AT  80000 = 1;20. remaining 1 min 80 seconds :
+        setTimeout(function() {$(".content2").fadeOut(1500);},84000); //lasts for 4 seconds113000
+        setTimeout(function() {$(".content3").fadeIn(1500);},120000);   //at 2 mins
+        setTimeout(function() {$(".content3").fadeOut(1500);},124000);  //lasts for 4 seconds
+        setTimeout(function() {$(".content4").fadeIn(1500);},150000);  //AT 2 min 30 seconds
+        setTimeout(function() {$(".content4").fadeOut(1500);},154000); //lasts for 4 seconds
+
         </script>{% endblock %}
 
 {% block content %}
@@ -101,10 +100,10 @@ function required() {
 
      <div class=“parent”>
          <div class="mx-auto" style="width: 200px;"> <img class="col-md-12 float-sm-end mb-12 ms-md-12" style="max-width:250px" src="{% static '10.png' %}"/> </div>
-            <div class=“child”><div class="content1" style="display:none; position:absolute;top: 100px; left: 100px; right: 0px; bottom: 0px;font-size:50px;color:red;font-family: Fantasy;">1</div>  </div>
-            <div class=“child”><div class="content2" style="display:none;position:absolute;top: 100px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:50px;font-family: Fantasy;"> 6 </div></div>
-            <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:50px; font-family: Fantasy ; "> 10 </div></div>
-            <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:50px; font-family: Fantasy ; "> 100 </div></div>
+            <div class=“child”><div class="content1" style="display:none; position:absolute;top: 100px; left: 100px; right: 0px; bottom: 0px;font-size:80px;color:red;font-family: Fantasy;">1</div>  </div>
+            <div class=“child”><div class="content2" style="display:none;position:absolute;top: 100px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:80px;font-family: Fantasy;"> 6 </div></div>
+            <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:80px; font-family: Fantasy ; "> 10 </div></div>
+            <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:80px; font-family: Fantasy ; "> 100 </div></div>
      </div>
 
     <div class="clearfix"></div>
