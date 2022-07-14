@@ -109,10 +109,10 @@ class Player(BasePlayer):
             if self.store_time != 0:
                 self.payoff2_self = Constants.optionA[0]
                 self.payoff2_charity = Constants.optionA[1]
-        else: #not pressing the button yields the selfish action
+            else: #not pressing the button yields the selfish action
                 self.payoff2_self = Constants.optionA[0]
                 self.payoff2_charity = Constants.optionA[1]
-        elif self.treatment == "NoButton":
+        elif self.treatment == "ButtonB":
             if self.secondary_button == "A":
                 self.payoff2_self_danat = 10
                 self.payoff2_charity_danat = 0
