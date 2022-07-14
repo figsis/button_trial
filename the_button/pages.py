@@ -75,14 +75,13 @@ class Error(Page):
     form_model = 'player'
     form_fields = [ 'store_time', 'store_timeB']  # 'store_time'
 
-        def is_displayed(self):
-            player = self.player
-            return player.treatment == "NoButton" and player.store_time==0 and player.store_timeB==0
-        def error_message(self, values):
-            if values['store_time'] == 0 and values['store_timeB'] == 0:
-                # if self.self.player.secondary_button == "" or self.player.secondary_button == None:
-                # if self.player.store_time==0 and self.player.store_timeB==0:
-                return 'Error. You did not select any option. Please select an option'
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "NoButton" and player.store_time==0 and player.store_timeB==0
+
+    def error_message(self, values):
+        if values['store_time'] == 0 and values['store_timeB'] == 0:
+            return 'Error. You did not select any option. Please select an option'
 
 
 class Payment(Page):
