@@ -75,7 +75,7 @@ class Player(BasePlayer):
             {
                 'question': 'If you choose B, you earn a bonus of',
                 'options': ['5 euros', '7 euros', '10 euros'],
-                'correct': '5 euros',
+                'correct': '7 euros',
             },
 
         ]
