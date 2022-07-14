@@ -69,14 +69,14 @@
    <span id="mins-left"></span> minutes and <span id="secs-left"></span> seconds</b>. <br>
 <b>Clicking the button cannot be reversed. Clicking the button will not save you time.</b><br>
 
-     {% if player.treatment == "ButtonA" %} <small> If you do not click, your payoff will be 5 and the charity will get 15 .)</small> <br><br>
+     {% if player.treatment == "ButtonA" %} If you do not click, your payoff will be 5 &pound and the charity will get 15 &pound. <br><br>
 
  <br><br>
  <div class=“parent”>
   <div class="col-12">
       <button name="button" value="True" class="btn btn--action" onclick="storeTime();this.disabled=true"><br>
         <br><p> If you click: <br><br><br> </p>
-          <h4>You: {{ Constants.optionB0}} , Charity: {{ Constants.optionB1}} <br><br><br></h4>
+          <h4>You: {{ Constants.optionB0}} &pound , Charity: {{ Constants.optionB1}} &pound <br><br><br></h4>
             <br> </button></div>
 
             <div class=“child”><div class="content1" style="display:none; position:absolute;top: 400px; left: 100px; right: 0px; bottom: 0px;font-size:80px;color:red;font-family: Fantasy;">1</div>  </div>
@@ -88,7 +88,7 @@
 
 {% elif player.treatment == "ButtonB"%}
 
-       <small> If you do not click, your payoff will be {{ Constants.optionB0}}  and the charity will get {{ Constants.optionB1}}.)</small> <br><br>
+       If you do not click, your payoff will be {{ Constants.optionB0}} &pound  and the charity will get {{ Constants.optionB1}} &pound. <br><br>
 
 
  <br><br>
@@ -96,7 +96,7 @@
         <div class="col-12">
              <button name="button" value="True" class="btn btn--action" onclick="storeTime(); this.disabled=true"><br>
                 <br><p> If you click: <br><br><br> </p>
-                <h4>You: {{ Constants.optionA0}} , Charity: {{ Constants.optionA1}} <br><br><br></h4>
+                <h4>You: {{ Constants.optionA0}} &pound , Charity: {{ Constants.optionA1}} &pound <br><br><br></h4>
                  <br> </button></div>
 
             <div class=“child”><div class="content1" style="display:none; position:absolute;top: 400px; left: 100px; right: 0px; bottom: 0px;font-size:50px;color:red;font-family: Fantasy;">1</div>  </div>
