@@ -71,19 +71,18 @@ class task_timed(Page):
         player = self.player
         return player.treatment == "NoButton"
 
-    class Error(Page):
-        form_model = 'player'
-        form_fields = [ 'store_time', 'store_timeB']  # 'store_time'
-        timeout_seconds = Constants.timer
+class Error(Page):
+    form_model = 'player'
+    form_fields = [ 'store_time', 'store_timeB']  # 'store_time'
 
         def is_displayed(self):
             player = self.player
             return player.treatment == "NoButton" and player.store_time==0 and player.store_timeB==0
-    #def error_message(self, values):
-        #   if values['store_time'] ==0 and values['store_timeB']==0:
-        #if self.self.player.secondary_button == "" or self.player.secondary_button == None:
-        #if self.player.store_time==0 and self.player.store_timeB==0:
-    #   return 'Error.You did not select any option. Please select an option'
+        def error_message(self, values):
+            if values['store_time'] == 0 and values['store_timeB'] == 0:
+                # if self.self.player.secondary_button == "" or self.player.secondary_button == None:
+                # if self.player.store_time==0 and self.player.store_timeB==0:
+                return 'Error. You did not select any option. Please select an option'
 
 
 class Payment(Page):
@@ -122,6 +121,7 @@ class Attention_Survey(Page):
         return dict(q_number=self.player.q_number)
     def before_next_page(self):
         self.player.set_payoffs()
+
 
 
 class Survey(Page):
@@ -207,6 +207,7 @@ page_sequence = [SummaryTask1_,
                  Button,
                  #ButtonClicked,
                  task_timed,
+                 Error,
                  #danat_clicked,
                  Attention_Survey,
                  Survey,
