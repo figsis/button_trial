@@ -98,27 +98,27 @@ class Player(BasePlayer):
                                             blank=True)
 
     def set_payoffs(self):
-            if self.treatment == "ButtonA":
-                if self.store_time != 0:
-                    self.payoff2_self = Constants.optionB[0]
-                    self.payoff2_charity = Constants.optionB[1]
-                elif self.store_time == 0:
-                    self.payoff2_self = Constants.optionA[0]
-                    self.payoff2_charity = Constants.optionA[1]
-            elif self.treatment == "ButtonB":
-                if self.store_time != 0:
-                    self.payoff2_self = Constants.optionA[0]
-                    self.payoff2_charity = Constants.optionA[1]
-                else: #not pressing the button yields the selfish action
-                    self.payoff2_self = Constants.optionA[0]
-                    self.payoff2_charity = Constants.optionA[1]
-            elif self.session.vars["treatment"] == "NoButton":
-                if self.secondary_button == "A":
-                    self.payoff2_self_danat = 10
-                    self.payoff2_charity_danat = 0
-                elif self.secondary_button  == "B":
-                    self.payoff2_self_danat = 5
-                    self.payoff2_charity_danat = 15
+        if self.treatment == "ButtonA":
+            if self.store_time != 0:
+                self.payoff2_self = Constants.optionB[0]
+                self.payoff2_charity = Constants.optionB[1]
+            elif self.store_time == 0:
+                self.payoff2_self = Constants.optionA[0]
+                self.payoff2_charity = Constants.optionA[1]
+        elif self.treatment == "ButtonB":
+            if self.store_time != 0:
+                self.payoff2_self = Constants.optionA[0]
+                self.payoff2_charity = Constants.optionA[1]
+        else: #not pressing the button yields the selfish action
+                self.payoff2_self = Constants.optionA[0]
+                self.payoff2_charity = Constants.optionA[1]
+        elif self.treatment == "NoButton":
+            if self.secondary_button == "A":
+                self.payoff2_self_danat = 10
+                self.payoff2_charity_danat = 0
+            elif self.secondary_button == "B":
+                self.payoff2_self_danat = 5
+                self.payoff2_charity_danat = 15
 
 
     def set_bonus(self):

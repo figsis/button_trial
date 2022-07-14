@@ -55,6 +55,7 @@ class Player(BasePlayer):
         # to store for next app (button task + final payoffs)
         self.participant.vars["payoff1_self"] = self.payoff1_self
         self.participant.vars["payoff1_charity"] = self.payoff1_charity
+        self.participant.vars["task1"] = self.task1
 
     def store_uq_dana(self):
         self.uq_wrong_dana = self.understanding_questions_wrong_attempts

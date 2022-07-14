@@ -71,8 +71,7 @@ class task_timed(Page):
         player = self.player
         return player.treatment == "NoButton"
 
-    def before_next_page(self):
-        self.player.set_payoffs()
+
 
 class Payment(Page):
     form_model = 'player'
@@ -102,7 +101,8 @@ class Attention_Survey(Page):
 
     def vars_for_template(self):
         return dict(q_number=self.player.q_number)
-
+    def before_next_page(self):
+        self.player.set_payoffs()
 
 
 class Survey(Page):
@@ -157,13 +157,13 @@ class Survey_danat(Page):
     form_fields = []
 
     def vars_for_template(self):
-        return dict(payoff1_self=self.player.participant.vars["payoff1_self"],
-                    payoff2_self_danat=self.player.payoff2_self_danat)
+        return dict(task1=self.player.participant.vars["task1"],
+                    secondary_button= self.player.secondary_button)
 
     def get_form_fields(self):
-        if self.participant.vars["payoff1_self"] == self.player.payoff2_self_danat:
+        if self.participant.vars["task1"] == self.player.secondary_button:
             return ['q_nochange']
-        elif self.participant.vars["payoff1_self"] != self.player.payoff2_self_danat:
+        elif self.participant.vars["task1"] == self.player.secondary_button:
             return ['q_change']
 
 
