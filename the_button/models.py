@@ -31,7 +31,7 @@ class Constants(BaseConstants):
     optionA1=optionA[1]
     optionB0=optionB[0]
     optionB1=optionB[1]
-    timer = 30 # in seconds
+    timer = 180 # in seconds
     dana2A_self = 10
     dana2A_other = 0
     dana2B_self = 5
@@ -43,7 +43,7 @@ class Subsession(BaseSubsession):
         for player in self.get_players():
             player.treatment = random.choice(["ButtonA", "ButtonB","NoButton"])
             self.session.vars["treatment"] = player.treatment
-            player.selected= random.choices(Constants.numberList, weights=(50,50), k=1)[0] #10,90
+            player.selected= random.choices(Constants.numberList, weights=(10,90), k=1)[0] #10,90
             self.session.vars["selected"] = player.selected
             #player.participant.vars["payoff2_self"] = ""
             player.participant.vars["payoff3"] = ""
@@ -72,7 +72,7 @@ class Player(BasePlayer):
     # payoff2 = models.IntegerField()
     payoff3 = models.FloatField()
     payoff4 = models.FloatField()
-    #payoff2o = models.IntegerField()
+
     payoff2_charity = models.IntegerField()  # payoff task 2 (button)
     danat = models.StringField(blank=True)  # whether participant takes selfish choice in Dana timed task
     secondary_button = models.StringField()
