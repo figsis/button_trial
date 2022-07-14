@@ -93,7 +93,13 @@ class Payment(Page):
             payoff4 = self.player.payoff4
 
         )
-
+    def js_vars(self):
+        cc_code = self.session.config["cc_code"]
+        link = "https://app.prolific.co/submissions/complete?cc=" + str(cc_code)
+        return dict(
+            completionlink=link
+        )
+    pass
 
 class Attention_Survey(Page):
     form_model = 'player'

@@ -19,7 +19,7 @@ class Constants(BaseConstants):
     name_in_url = 'dana_timed'
     players_per_group = None
     num_rounds = 1
-    timer = 30  # in seconds
+    timer = 180  # in seconds
     dana2A_self = 10
     dana2A_other = 0
     dana2B_self = 5

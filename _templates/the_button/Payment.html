@@ -1,5 +1,15 @@
 {% extends "global/Page.html" %}
 {% load staticfiles otree %}
+<script>
+
+        let completionlink = js_vars.completionlink;
+        function completed() {
+            console.log("clicking the button")
+            window.location.href = completionlink;
+        }
+
+
+</script>
 
 {% block title %} Final Payoff {% endblock %}
 
@@ -58,6 +68,7 @@
      Your total payoff is then: {{payoff4}}.
  </div>
 
+<button type="button" class="btn btn-primary btn-right btn-lg" onclick="completed()" > Back to Prolific </button>
 
 {% endblock %}
 {% block styles %}
@@ -74,5 +85,6 @@
         }
 
     </style>
+
 {% endblock %}
 

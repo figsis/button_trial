@@ -21,19 +21,11 @@ SESSION_CONFIGS = [
 		 slider_init='LEFT',
 		 random_payoff='RAND',
 		 precision='INTEGERS',
+		 cc_code="CCCODE",
 		 doc=''),
 ]
 DEBUG = False
-#DATABASES = {
- #   'default': {
-#      'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#       'NAME': 'mydb',
-#       'USER': 'myuser',
-#       'PASSWORD': 'password',
-#       'HOST': '',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-#       'PORT': '',                      # Set to empty string for default.
-#   }
-#}
+
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.

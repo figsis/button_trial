@@ -7,7 +7,11 @@ Task 4
 {% endblock %}
 
 {% block styles %}
-
+<style>
+.otree-timer.alert {
+    display:none;
+}
+</style>
 {% endblock %}
 
 
@@ -19,6 +23,7 @@ function deactivateB() {
    document.getElementsByName('danat')[1].disabled = true;
    return true;
 }
+
 </script>
 
 <script type="text/javascript">
@@ -74,14 +79,13 @@ function required() {
 
         setTimeout(function() {$(".content").fadeOut(1500);}, 3000)
         setTimeout(function() {$(".content1").fadeIn(1500);}, 30000); //30 seconds
-        setTimeout(function() {$(".content1").fadeOut(1500);},32000); //lasts for 2 seconds
+        setTimeout(function() {$(".content1").fadeOut(1500);},33000); //lasts for 2 seconds
         setTimeout(function() {$(".content2").fadeIn(1500);},110000);  //1 min 50 seconds
-        setTimeout(function() {$(".content2").fadeOut(1500);},112000); //lasts for 2 seconds
-        setTimeout(function() {$(".content3").fadeIn(1500);},150000);   //2 min 30 seconds
-        setTimeout(function() {$(".content3").fadeOut(1500);},152000);  //lasts for 2 seconds
+        setTimeout(function() {$(".content2").fadeOut(1500);},113000); //lasts for 2 seconds
+        setTimeout(function() {$(".content3").fadeIn(1500);},130000);   //2 min 10 seconds
+        setTimeout(function() {$(".content3").fadeOut(1500);},133000);  //lasts for 2 seconds
         setTimeout(function() {$(".content4").fadeIn(1500);},170000);  //2 min 50 seconds
-        setTimeout(function() {$(".content4").fadeOut(1500);},172000); //lasts for 2 seconds
-
+        setTimeout(function() {$(".content4").fadeOut(1500);},173000); //lasts for 2 seconds
         </script>{% endblock %}
 
 {% block content %}
