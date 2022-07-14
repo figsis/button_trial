@@ -16,7 +16,7 @@ class Constants(BaseConstants):
     name_in_url = 'dat'
     players_per_group = None         # The number should be a multiple of 2 in case the matching is RANDOM_DICTATOR.
     num_rounds = 1
-    participation_fee = 0.75  # in pounds
+    participation_fee = 2.40  # in pounds
     prolific_id = models.StringField()
 
 
