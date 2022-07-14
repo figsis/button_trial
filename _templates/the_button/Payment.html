@@ -20,52 +20,52 @@
 
     {% if treatment == "ButtonA" and player.selected == 0 %}
         <div class="alert alert-info" role="alert">
-        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 2 </b>: From the randomly selected slider, you get {{payoff_svo}}&pound and the Red Cross gets {{ payoff_svo_other }}&pound.<br>
         <b>Task 3 </b>: You have not been selected for payment.<br>
         <b>Bonus</b>: {%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.{%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
         </div><br>
 
     {% elif treatment == "ButtonA" and player.selected == 1 %}
         <div class="alert alert-info" role="alert">
-        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 2 </b>: From the randomly selected slider, you get {{payoff_svo}}&pound and the Red Cross gets {{ payoff_svo_other }}&pound.<br>
         <b>Task 3 </b>: You have been selected for payment. <br>
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
-       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
+       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}&pound .  {% endif %}
              </div><br>
     {% elif treatment == "ButtonB" and player.selected == 0%}
         <div class="alert alert-info" role="alert">
-        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 2 </b>: From the randomly selected slider, you get {{payoff_svo }}&pound and the Red Cross gets {{ payoff_svo_other }}&pound.<br>
         <b>Task 3 </b>: You have not been selected for payment.<br>
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
-       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
+       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}&pound .  {% endif %}
        </div><br>
     {% elif treatment == "ButtonB" and player.selected == 1%}
         <div class="alert alert-info" role="alert">
-        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 2 </b>:  From the randomnly selected slider, you get {{payoff_svo }}&pound and the Red Cross gets {{ payoff_svo_other }}&pound.<br>
         <b>Task 3 </b>: You have been selected for payment. <br>
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
-        {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}
+        {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}&pound .  {% endif %}
          </div><br>
     {% elif treatment == "NoButton" and player.selected == 0%}
         <div class="alert alert-info" role="alert">
-        <b>Task 2 </b>:  From the randomnly selected slider,  you get {{payoff_svo }} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 2 </b>:  From the randomly selected slider, you get {{payoff_svo }}&pound and the Red Cross gets {{ payoff_svo_other }}&pound .<br>
         <b>Task 3 </b>: You have not been selected for payment.<br>
         <b>Bonus</b>:{%if bonus == 0%}  You did not input the highest number. Pay more attention next time! No bonus for you.
-       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}  {% endif %}</div><br>
+       {%elif bonus != 0%} You inputed the highest number. You get a bonus of {{bonus}}&pound .{% endif %}</div><br>
 
     {% elif treatment == "NoButton" and player.selected == 1%}
          <div class="alert alert-info" role="alert">
-        <b>Task 2 </b>: From the randomnly selected slider, you get {{payoff_svo}} and the Red Cross gets {{ payoff_svo_other }}.<br>
+        <b>Task 2 </b>: From the randomly selected slider, you get {{payoff_svo}}&pound and the Red Cross gets {{ payoff_svo_other }}&pound .<br>
         <b>Task 3 </b>: You have been selected for payment.<br>
         <b>Bonus</b> :{% if bonus == 0 %}  You did not input the highest number. Pay more attention next time! No bonus for you.
-       {% elif bonus != 0 %} You inputed the highest number. You get a bonus of {{bonus}}
+       {% elif bonus != 0 %} You inputed the highest number. You get a bonus of {{bonus}}&pound .
     {% endif %}
              </div><br>
         {% endif %}
 
 
  <div class="alert alert-light" role="alert">
-     Your total payoff is then: {{payoff4}}.
+     Your total payoff is then: {{payoff4}}&pound .
  </div>
 
 <button type="button" class="btn btn-primary btn-right btn-lg" onclick="completed()" > Back to Prolific </button>
