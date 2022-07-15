@@ -87,7 +87,7 @@ class Error(Page):
 class Payment(Page):
     form_model = 'player'
     form_fields = [ 'bonus', 'payoff2_self', 'payoff2_charity', 'payoff2_self_danat',
-                    'payoff2_charity_danat', 'payoff3']
+                    'payoff2_charity_danat', 'payoff3', 'treatment']
     def vars_for_template(self):
         return dict(
             payoff_svo=self.player.participant.vars["payoff_svo"],
@@ -101,7 +101,8 @@ class Payment(Page):
             payoff2_self_danat=self.player.payoff2_self_danat,
             bonus= self.player.bonus,
             payoff3= self.player.payoff3,
-            payoff4 = self.player.payoff4
+            payoff4 = self.player.payoff4,
+            treatment = self.player.treatment,
 
         )
     def js_vars(self):
