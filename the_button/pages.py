@@ -73,14 +73,14 @@ class task_timed(Page):
 
 class Error(Page):
     form_model = 'player'
-    form_fields = [ 'store_time', 'store_timeB']  # 'store_time'
+    form_fields = [ 'store_time', 'store_timeB',"secondary_button"]  # 'store_time'
 
     def is_displayed(self):
         player = self.player
-        return player.treatment == "NoButton" and player.store_time==0 and player.store_timeB==0
+        return player.treatment == "NoButton" and player.secondary_button == ""
 
     def error_message(self, values):
-        if values['store_time'] == 0 and values['store_timeB'] == 0:
+        if self.player.secondary_button == "":
             return 'Error. You did not select any option. Please select an option'
 
 
