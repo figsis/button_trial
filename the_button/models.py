@@ -31,7 +31,7 @@ class Constants(BaseConstants):
     optionA1=optionA[1]
     optionB0=optionB[0]
     optionB1=optionB[1]
-    timer = 30 # in seconds
+    timer = 180 # in seconds
     dana2A_self = 10
     dana2A_other = 0
     dana2B_self = 5
