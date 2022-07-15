@@ -83,7 +83,14 @@ class Error(Page):
         if self.player.secondary_button == "":
             return 'Error. You did not select any option. Please select an option'
 
+    def js_vars(self):
+        error_code = self.session.config["error_code"]
+        link = "https://app.prolific.co/submissions/complete?cc=" + str(error_code)
+        return dict(
+            completionlink=link
+        )
 
+    pass
 class Payment(Page):
     form_model = 'player'
     form_fields = [ 'bonus', 'payoff2_self', 'payoff2_charity', 'payoff2_self_danat',

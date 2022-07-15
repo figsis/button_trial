@@ -23,6 +23,7 @@ SESSION_CONFIGS = [
 		 random_payoff='RAND',
 		 precision='INTEGERS',
 		 cc_code="CCCODE",
+		 error_code='ECODE',
 		 doc=''),
 ]
 DEBUG = True

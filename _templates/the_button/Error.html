@@ -2,6 +2,19 @@
 {% load staticfiles otree_tags %}
 {% load otree%}
 {% block title %}Error{% endblock %}
+
+{% block scripts%}
+<script>
+
+        let errorlink = js_vars.errorlink;
+        function errorfct() {
+            console.log("clicking the button")
+            window.location.href = errorlink;
+        }
+
+
+</script>
+{% endblock %}
 {% block content %}
 
 
@@ -9,7 +22,7 @@
 You did not follow the instructions. You did not make any selection.
 
 
-<button type="button" class="btn btn-primary btn-right btn-lg" onclick="completed()" > Back to Prolific </button>
+<button type="button" class="btn btn-primary btn-right btn-lg" onclick="errorfct()" > Back to Prolific </button>
 
 
 

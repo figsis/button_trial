@@ -1,5 +1,7 @@
 {% extends "global/Page.html" %}
 {% load staticfiles otree %}
+
+{% block scripts%}
 <script>
 
         let completionlink = js_vars.completionlink;
@@ -10,6 +12,7 @@
 
 
 </script>
+{% endblock %}
 
 {% block title %} Final Payoff {% endblock %}
 
