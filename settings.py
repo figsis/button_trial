@@ -12,6 +12,7 @@ SESSION_CONFIGS = [
 		 random_payoff='RAND',
 		 precision='INTEGERS',
 		 cc_code="CCCODE",
+		 error_code='ECODE',
 		 doc=''),
 	dict(name='Button_nosvo',
 		 app_sequence=['dana', 'the_button'],
