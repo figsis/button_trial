@@ -41,10 +41,11 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def creating_session(self):
         for player in self.get_players():
-            player.treatment = random.choice(["ButtonA", "ButtonB","NoButton"])
-            self.participant.vars["treatment"] = player.treatment
+
             player.selected= random.choices(Constants.numberList, weights=(10,90), k=1)[0] #10,90
             self.session.vars["selected"] = player.selected
+            player.treatment = random.choice(["ButtonA", "ButtonB", "NoButton"])
+            player.participant.vars["treatment"] = player.treatment
             #player.participant.vars["payoff2_self"] = ""
             player.participant.vars["payoff3"] = ""
             #player.participant.vars["payoff2_charity"] = ""
