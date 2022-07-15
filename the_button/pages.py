@@ -87,7 +87,7 @@ class Error(Page):
         error_code = self.session.config["error_code"]
         link = "https://app.prolific.co/submissions/complete?cc=" + str(error_code)
         return dict(
-            completionlink=link
+            errorlink=link
         )
 
     pass
