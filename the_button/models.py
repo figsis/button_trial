@@ -141,7 +141,7 @@ class Player(BasePlayer):
                     if self.q_number == 100:
                         self.payoff3 = 5.5
                         self.payoff4 = self.payoff3 + float(self.participant.vars["payoff_svo"])
-                    elif  self.q_number != 100:
+                    elif self.q_number != 100:
                         self.payoff3=5
                         self.payoff4 = self.payoff3+ float(self.participant.vars["payoff_svo"])
             else: #button not pressed
