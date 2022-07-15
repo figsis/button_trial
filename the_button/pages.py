@@ -7,7 +7,7 @@ from .models import Player
 
 def vars_for_all_templates(self):
     return {
-        'treatment': self.session.vars["treatment"],
+        'treatment': self.participant.vars["treatment"],
         'selected':  self.session.vars["selected"]}
 
 

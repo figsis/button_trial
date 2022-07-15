@@ -25,7 +25,7 @@ SESSION_CONFIGS = [
 		 cc_code="CCCODE",
 		 doc=''),
 ]
-DEBUG = True
+DEBUG = False
 
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
