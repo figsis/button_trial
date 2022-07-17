@@ -99,15 +99,14 @@ class Payment(Page):
         return dict(
             payoff_svo=self.player.participant.vars["payoff_svo"],
             payoff_svo_other=self.player.participant.vars["payoff_svo_other"],
-            #payoff2_charity=self.player.participant.vars["payoff2_charity"],
             payoff2_charity=self.player.payoff2_charity,
             payoff2_charity_danat=self.player.payoff2_charity_danat,
             #paid_slider = self.player.participant.vars["paid_slider"],
             selected=self.player.selected,
             payoff2_self=self.player.payoff2_self,
             payoff2_self_danat=self.player.payoff2_self_danat,
-            bonus= self.player.bonus,
-            payoff3= self.player.payoff3,
+            bonus = self.player.bonus,
+            payoff3 = self.player.payoff3,
             payoff4 = self.player.payoff4,
             treatment = self.player.treatment,
 
@@ -208,14 +207,13 @@ class Comments(Page):
 
 
 
-page_sequence = [SummaryTask1_,
+page_sequence = [
+                 SummaryTask1_,
                  SummaryTask1_danat,
                  Instructions_Attention,
                  Button,
-                 #ButtonClicked,
                  task_timed,
                  Error,
-                 #danat_clicked,
                  Attention_Survey,
                  Survey,
                  Survey_danat,

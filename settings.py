@@ -27,7 +27,7 @@ SESSION_CONFIGS = [
 		 error_code='ECODE',
 		 doc=''),
 ]
-DEBUG = False
+DEBUG = TRUE
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.

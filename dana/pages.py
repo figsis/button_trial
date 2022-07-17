@@ -28,7 +28,6 @@ class Task1Check1(UnderstandingQuestionsPage):
         self.player.store_uq_dana()
 
 page_sequence = [
-
     InstructionsTask1,
     Task1Check1,
     Task1,
