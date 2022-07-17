@@ -77,7 +77,7 @@ class Player(BasePlayer):
     q2 = models.LongStringField(label='Why did you decide not to press the button?')
     #Why did you change/did not change your final decision? In all treatments every time a discrepancy between decisions.
     q_change = models.LongStringField(label='Why did you change your mind when you were given more time to think about the decision in Task 3?')
-    q_nochange = models.LongStringField(label='Why did not you change your mind when you were given more time to think about the decision in Task 3?')
+    q_nochange = models.LongStringField(label='Why did you not change your mind when you were given more time to think about the decision in Task 3?')
     #What was the highest number that you saw appear on screen?
     q_number = models.IntegerField(label="What was the highest number that you saw appearing on screen?")
     selected = models.IntegerField()
@@ -113,7 +113,7 @@ class Player(BasePlayer):
 
     def set_bonus(self):
         if self.q_number == 100:
-            self.participant.vars["bonus"] = 0.5
+            self.participant.vars["bonus"] = 0.1
             self.bonus = self.participant.vars["bonus"]
         elif self.q_number != 100:
             self.bonus = 0
