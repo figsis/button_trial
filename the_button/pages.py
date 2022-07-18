@@ -231,7 +231,7 @@ page_sequence = [
                  Attention_Survey,
                  Survey,
                  Survey_danat,
-                 Survey_danatC,
+               #  Survey_danatC,
                  Comments,
                  Payment
                  ]
