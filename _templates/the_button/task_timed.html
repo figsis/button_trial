@@ -100,7 +100,7 @@ function required() {
         </script>{% endblock %}
 
 {% block content %}
-    <input type="hidden" name="store_time" id="store_time" />
+    <input hidden name="store_time" id="store_time" />
 
 <div class="alert alert-secondary" role="alert">
   This page will automatically submit in <b>
@@ -136,6 +136,6 @@ function required() {
 
    </div></div></div>
 {{ form.secondary_button.errors }}
-
+{{ form.store_time.errors }}
 
 {% endblock %}
