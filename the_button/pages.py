@@ -146,43 +146,43 @@ class Survey(Page):
         return []
 
     def before_next_page(self):
-        self.player.set_payoffs()
         self.player.set_bonus()
-        self.player.set_payoff3()
+        self.player.set_payoffsdanat()
 
 
 class Survey_danat(Page):
     form_model = 'player'
-    form_fields = ['q_nochange']
+    form_fields = []
 
-    # get_form_fields(self):
-    # g if self.participant.vars["treatment"]=="NoButton":
-    # g     if self.participant.vars["task1"] == self.player.secondary_button:
-    # g         return ['q_nochange']
-    # g     elif self.participant.vars["task1"] == self.player.secondary_button:
-    # g         return ['q_change']
-    # g else:
-    # g     pass
+    def get_form_fields(self):
+        if self.participant.vars["treatment"]=="NoButton":
+            if self.participant.vars["task1"] == self.player.secondary_button:
+                return ['q_nochange']
+            elif self.participant.vars["task1"] == self.player.secondary_button:
+                return ['q_change']
+        else:
+            pass
+        return []
 
 
     def is_displayed(self):
         player = self.player
-        return player.treatment == "NoButton" and self.participant.vars["task1"] == self.player.secondary_button
+        return player.treatment == "NoButton" #and self.participant.vars["task1"] == self.player.secondary_button
 
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoff3()
+        self.player.set_payoffsdanat()
 
-class Survey_danatC(Page):
-    form_model = 'player'
-    form_fields = ['q_change']
+#class Survey_danatC(Page):
+ #   form_model = 'player'
+  #  form_fields = ['q_change']
 
-    def is_displayed(self):
-        return self.player.treatment == "NoButton" and self.participant.vars["task1"] != self.player.secondary_button
+   # def is_displayed(self):
+    #    return self.player.treatment == "NoButton" and self.participant.vars["task1"] != self.player.secondary_button
 
-    def before_next_page(self):
-        self.player.set_bonus()
-        self.player.set_payoff3()
+    #def before_next_page(self):
+     #   self.player.set_bonus()
+      #  self.player.set_payoff3()
 
 
 class Comments(Page):
