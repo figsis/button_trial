@@ -130,12 +130,11 @@ class Attention_Survey(Page):
      #   self.player.set_payoffs()
 
     def before_next_page(self):
+        player = self.player
         if player.treatment == "ButtonA" or player.treatment == "ButtonB":
             self.player.set_bonus()
             self.player.set_payoffsdanat()
             self.player.set_payoffs()
-
-
         else:
             self.player.set_payoffs()
             self.player.set_bonus()
@@ -226,9 +225,9 @@ page_sequence = [
                  Button,
                  task_timed,
                  Error,
-                 #Attention_Survey,
+                 Attention_Survey,
                  #Survey,
                  #Survey_danat,
                  Comments,
-                 #Payment
+                 Payment
                  ]
