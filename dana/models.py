@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     num_rounds = 1
     # Dana payoffs
     danaA_self = 10
-    danaB_self = 5
+    danaB_self = 3
     danaA_other = 0
     danaB_other = 15
 

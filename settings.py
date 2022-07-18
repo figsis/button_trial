@@ -4,7 +4,7 @@ from os import environ
 SESSION_CONFIGS = [
 	dict(name='Button',
 		 app_sequence=['dat','svo','dana','the_button'],
-		 num_demo_participants=100,
+		 num_demo_participants=10,
 		 select_items='PRIMARY',
 		 items_in_random_order=False,
 		 scale=0.01,
@@ -27,7 +27,7 @@ SESSION_CONFIGS = [
 		 error_code='ECODE',
 		 doc=''),
 ]
-DEBUG = False
+DEBUG = True
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
