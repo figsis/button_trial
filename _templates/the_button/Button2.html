@@ -17,11 +17,16 @@
         }
     .btn--action{
         cursor: pointer;
-        background-image: url('https://media.istockphoto.com/vectors/french-franc-coin-icon-flat-vector-illustration-with-sign-of-franc-vector-id1064319546?k=20&m=1064319546&s=612x612&w=0&h=k_YIIwmr_K_PtXP_T0iQNBe90cip51irg_Wkj7BS7-M= ');
+        background-image: url('https://www.ifrc.org/sites/default/files/styles/article_press_release_featured_image/public/IMG_0251.jpg?itok=OvT1jknw');
         background-position: center;
     }
 
 
+    .btn--action2{
+        cursor: pointer;
+        background-image: url('https://media.istockphoto.com/vectors/french-franc-coin-icon-flat-vector-illustration-with-sign-of-franc-vector-id1064319546?k=20&m=1064319546&s=612x612&w=0&h=k_YIIwmr_K_PtXP_T0iQNBe90cip51irg_Wkj7BS7-M= ');
+        background-position: center;
+    }
     .otree-timer.alert {
         display:none;
 }
@@ -72,20 +77,24 @@
    <span id="mins-left"></span> minutes and <span id="secs-left"></span> seconds</b>. <br>
 <b>Clicking the button cannot be reversed. Clicking the button will not make you advance to the next page.</b><br>
 
-      If you do not click, your payoff will be 3&pound and the charity will get 15&pound. <br><br>
 
  <br><br>
- <div class=“parent”>
-  <div class="col-12">
-      <button name="button" value="True" class="btn btn--action2" onclick="storeTime();this.disabled=true"><br>
-        <br><p> If you click: <br><br><br> </p>
-          <h4>You: {{ Constants.optionB0}}&pound , Charity: {{Constants.optionB1}}&pound <br><br><br></h4>
-            <br> </button></div>
+     If you do not click, your payoff will be {{Constants.optionB0}}&pound  and the charity will get {{ Constants.optionB1}}&pound. <br><br>
 
-            <div class=“child”><div class="content1" style="display:none; position:absolute;top: 400px; left: 100px; right: 0px; bottom: 0px;font-size:80px;color:red;font-family: Fantasy;">1</div>  </div>
-            <div class=“child”><div class="content2" style="display:none;position:absolute;top: 300px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:80px;font-family: Fantasy;"> 6 </div></div>
-            <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:80px; font-family: Fantasy ; "> 10 </div></div>
-            <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:80px; font-family: Fantasy ; "> 100 </div></div>
+
+ <br><br>
+<div class=“parent”>
+        <div class="col-12">
+             <button name="button" value="True" class="btn btn--action" onclick="storeTime(); this.disabled=true"><br>
+                <br><p> If you click: <br><br><br> </p>
+                <h4>You: {{Constants.optionA0}}&pound , Charity: {{Constants.optionA1}}&pound <br><br><br></h4>
+                 <br> </button></div>
+
+            <div class=“child”><div class="content1" style="display:none; position:absolute;top: 400px; left: 100px; right: 0px; bottom: 0px;font-size:50px;color:red;font-family: Fantasy;">1</div>  </div>
+            <div class=“child”><div class="content2" style="display:none;position:absolute;top: 300px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:50px;font-family: Fantasy;"> 6 </div></div>
+            <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:50px; font-family: Fantasy ; "> 10 </div></div>
+            <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:50px; font-family: Fantasy ; "> 100 </div></div>
+
 
 </div>
 

@@ -33,7 +33,16 @@ class Button(Page):
 
     def is_displayed(self):
         player = self.player
-        return player.treatment == "ButtonA" or player.treatment == "ButtonB"
+        return player.treatment == "ButtonA"
+
+class Button2(Page):
+    form_model = 'player'
+    form_fields = ['button', 'store_time']
+    timeout_seconds = Constants.timer
+
+    def is_displayed(self):
+        player = self.player
+        return  player.treatment == "ButtonB"
 
 #class ButtonClicked(Page):
     #   form_model = 'player'
@@ -321,6 +330,7 @@ page_sequence = [
                  SummaryTask1_danat,
                  Instructions_Attention,
                  Button,
+                 Button2,
                  task_timed,
                  Error,
                  Attention_Survey,
