@@ -226,9 +226,9 @@ page_sequence = [
                  Button,
                  task_timed,
                  Error,
-                 Attention_Survey,
+                 #Attention_Survey,
                  #Survey,
                  #Survey_danat,
                  Comments,
-                 Payment
+                 #Payment
                  ]
