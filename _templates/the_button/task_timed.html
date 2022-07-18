@@ -8,10 +8,22 @@ End of Task 3
 
 {% block styles %}
 <style>
+
+.news_img{
+  margin:20 20 20 20;
+  float:left;
+}
+
+.buttonimg{
+    width:auto;
+    height:auto;
+}
+
 .otree-timer.alert {
     display:none;
 }
 </style>
+
 {% endblock %}
 
 
@@ -88,38 +100,41 @@ function required() {
         </script>{% endblock %}
 
 {% block content %}
-    <input type="hidden" name="store_time" id="store_time" />
+
 
 <div class="alert alert-secondary" role="alert">
   This page will automatically submit in <b>
    <span id="mins-left"></span> minutes and <span id="secs-left"></span> seconds</b>. <br>
-<b> Clicking either option cannot be reversed. Clicking either option will not save you time. You need to choose an option to get compensated for the experiment. </b><br>
+   <b> You can only click once. Clicking either option will not make you advance to the next page. You need to choose an option to get compensated for the experiment. </b><br>
 
     <div class="card">
         <div class="card-body">
+            <div class=“parent”>
+                <div class="mx-auto" style="width: 200px;"> <img class="col-md-12 float-sm-end mb-12 ms-md-12" style="max-width:250px" src="{% static '10pounds.png' %}"/> </div>
+                <div class=“child”><div class="content1" style="display:none; position:absolute;top: 100px; left: 100px; right: 0px; bottom: 0px;font-size:80px;color:red;font-family: Fantasy;">1</div>  </div>
+                <div class=“child”><div class="content2" style="display:none;position:absolute;top: 100px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:80px;font-family: Fantasy;"> 6 </div></div>
+                <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:80px; font-family: Fantasy ; "> 10 </div></div>
+                <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:80px; font-family: Fantasy ; "> 100 </div></div>
+            </div>
 
-     <div class=“parent”>
-         <div class="mx-auto" style="width: 200px;"> <img class="col-md-12 float-sm-end mb-12 ms-md-12" style="max-width:250px" src="{% static '10pounds.png' %}"/> </div>
-            <div class=“child”><div class="content1" style="display:none; position:absolute;top: 100px; left: 100px; right: 0px; bottom: 0px;font-size:80px;color:red;font-family: Fantasy;">1</div>  </div>
-            <div class=“child”><div class="content2" style="display:none;position:absolute;top: 100px; left: 800px; right: 220px; bottom: 0px;color:red; font-size:80px;font-family: Fantasy;"> 6 </div></div>
-            <div class=“child”><div class="content3" style="display:none;position:absolute;top: 100px; left: 700px; right: 40px; bottom: 30px;color:red;font-size:80px; font-family: Fantasy ; "> 10 </div></div>
-            <div class=“child”><div class="content4" style="display:none;position:absolute;top:0px; left: 45px; right: 250px; bottom: 60px;color:red;font-size:80px; font-family: Fantasy ; "> 100 </div></div>
-     </div>
-
-    <div class="clearfix"></div>
+        <div class="clearfix"></div>
 
 
       <p> Please make your choice here:</p>
 
-<button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivate();required()"> Select Option A</button>
-<button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTimeB();deactivate();required()"> Select Option B</button>
+                <button name="task1" id="task1" value="A" class="btn btn-outline-primary" onclick="storeTime();required();deactivate()">Select option A</button><br>
+                <img style="max-width:125px" src="https://media.istockphoto.com/vectors/french-franc-coin-icon-flat-vector-illustration-with-sign-of-franc-vector-id1064319546?k=20&m=1064319546&s=612x612&w=0&h=k_YIIwmr_K_PtXP_T0iQNBe90cip51irg_Wkj7BS7-M="/>
+
+               <button name="task1" id="task1" value="B" class="btn btn-outline-primary" onclick="storeTimeB();required();deactivate()">Select option B</button><br>
+               <img style="max-width:150px" src="https://www.ifrc.org/sites/default/files/styles/article_press_release_featured_image/public/IMG_0251.jpg?itok=OvT1jknw"/>
+
+
+
 <input hidden id="secondary_button" name="secondary_button">
-<input hidden id="store_timeA" name="store_timeA">
+<input hidden name="store_time" id="store_time" >
 <input hidden id="store_timeB" name="store_timeB">
 
-
-   </div></div></div>
+</div></div></div>
 {{ form.secondary_button.errors }}
-
-
+{{ form.errors }}
 {% endblock %}
