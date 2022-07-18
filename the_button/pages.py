@@ -143,7 +143,8 @@ class Survey(Page):
             # altruistic button not pressed and altruistic dana (altruistic-selfish)
             elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 3:
                return ['q0', 'q2',  'q_change']
-        return []
+        else:
+            return []
 
     def before_next_page(self):
         self.player.set_bonus()
@@ -155,14 +156,13 @@ class Survey_danat(Page):
     form_fields = []
 
     def get_form_fields(self):
-        if self.participant.vars["treatment"]=="NoButton":
+        if self.participant.vars["treatment"] == "NoButton":
             if self.participant.vars["task1"] == self.player.secondary_button:
                 return ['q_nochange']
             elif self.participant.vars["task1"] == self.player.secondary_button:
                 return ['q_change']
         else:
-            pass
-        return []
+            return []
 
 
     def is_displayed(self):
