@@ -165,13 +165,21 @@ class Survey_danat(Page):
     # g else:
     # g     pass
 
-    #def vars_for_template(self):
-     #   return dict(task1 = self.player.participant.vars["task1"],
-      #              secondary_button = self.player.secondary_button)
 
     def is_displayed(self):
         player = self.player
-        return player.treatment == "NoButton"
+        return player.treatment == "NoButton" and self.participant.vars["task1"] == self.player.secondary_button
+
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoff3()
+
+class Survey_danatC(Page):
+    form_model = 'player'
+    form_fields = ['q_change']
+
+    def is_displayed(self):
+        return self.player.treatment == "NoButton" and self.participant.vars["task1"] == self.player.secondary_button
 
     def before_next_page(self):
         self.player.set_bonus()
@@ -224,6 +232,7 @@ page_sequence = [
                  Attention_Survey,
                  Survey,
                  Survey_danat,
+                 Survey_danatC,
                  Comments,
                  Payment
                  ]
