@@ -154,16 +154,16 @@ class Survey(Page):
 
 class Survey_danat(Page):
     form_model = 'player'
-    form_fields = []
+    form_fields = ['q_nochange']
 
-    def get_form_fields(self):
-        if self.participant.vars["treatment"]=="NoButton":
-            if self.participant.vars["task1"] == self.player.secondary_button:
-                return ['q_nochange']
-            elif self.participant.vars["task1"] == self.player.secondary_button:
-                return ['q_change']
-        else:
-            pass
+    # get_form_fields(self):
+    # g if self.participant.vars["treatment"]=="NoButton":
+    # g     if self.participant.vars["task1"] == self.player.secondary_button:
+    # g         return ['q_nochange']
+    # g     elif self.participant.vars["task1"] == self.player.secondary_button:
+    # g         return ['q_change']
+    # g else:
+    # g     pass
 
     #def vars_for_template(self):
      #   return dict(task1 = self.player.participant.vars["task1"],
