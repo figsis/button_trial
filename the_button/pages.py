@@ -18,6 +18,7 @@ class SummaryTask1_(Page):
 
 
 class SummaryTask1_danat(Page):
+
     def is_displayed(self):
         player = self.player
         return player.treatment == "NoButton"
@@ -73,7 +74,7 @@ class task_timed(Page):
 
 class Error(Page):
     form_model = 'player'
-    form_fields = [ 'store_time', 'store_timeB',"secondary_button"]  # 'store_time'
+    form_fields = ['store_time', 'store_timeB',"secondary_button"]  # 'store_time'
 
     def is_displayed(self):
         player = self.player
@@ -89,12 +90,14 @@ class Error(Page):
         return dict(
             errorlink=link
         )
-
     pass
+
+
 class Payment(Page):
     form_model = 'player'
     form_fields = ['bonus', 'payoff2_self', 'payoff2_charity', 'payoff2_self_danat',
                     'payoff2_charity_danat', 'payoff3', 'treatment']
+
     def vars_for_template(self):
         return dict(
             payoff_svo=self.player.participant.vars["payoff_svo"],
@@ -108,9 +111,9 @@ class Payment(Page):
             bonus = self.player.bonus,
             payoff3 = self.player.payoff3,
             payoff4 = self.player.payoff4,
-            treatment = self.player.treatment,
-
+            treatment = self.player.treatment
         )
+    
     def js_vars(self):
         cc_code = self.session.config["cc_code"]
         link = "https://app.prolific.co/submissions/complete?cc=" + str(cc_code)
@@ -200,6 +203,7 @@ class Survey_danat(Page):
     def vars_for_template(self):
         return dict(task1 = self.player.participant.vars["task1"],
                     secondary_button = self.player.secondary_button)
+
     def is_displayed(self):
         player = self.player
         return player.treatment == "NoButton"
