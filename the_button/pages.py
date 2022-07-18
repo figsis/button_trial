@@ -145,7 +145,7 @@ class Attention_Survey(Page):
 
 class Survey(Page):
     form_model = 'player'
-    #form_fields = ['q0', 'q2',  'q_nochange']
+    form_fields = []
 
     def vars_for_template(self):
         return dict(payoff1_self=self.player.participant.vars["payoff1_self"],
@@ -192,7 +192,7 @@ class Survey(Page):
 
 class Survey_danat(Page):
     form_model = 'player'
-    #form_fields = []
+    form_fields = []
 
     def get_form_fields(self):
         if self.participant.vars["task1"] == self.player.secondary_button:
