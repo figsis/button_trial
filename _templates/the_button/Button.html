@@ -13,7 +13,6 @@
     <style>
     .btn--action:hover, .btn--action:focus {
         background-color: indianred;
-
         transform: translateY(2px);
         }
     .btn--action{
@@ -21,7 +20,15 @@
         background-image: url('https://www.ifrc.org/sites/default/files/styles/article_press_release_featured_image/public/IMG_0251.jpg?itok=OvT1jknw');
         background-position: center;
     }
-
+        .btn--action2:hover, .btn--action:focus {
+        background-color: indianred;
+        transform: translateY(2px);
+        }
+    .btn--action2{
+        cursor: pointer;
+        background-image: url('https://media.istockphoto.com/vectors/french-franc-coin-icon-flat-vector-illustration-with-sign-of-franc-vector-id1064319546?k=20&m=1064319546&s=612x612&w=0&h=k_YIIwmr_K_PtXP_T0iQNBe90cip51irg_Wkj7BS7-M= ');
+        background-position: center;
+    }
     .otree-timer.alert {
         display:none;
 }
@@ -77,7 +84,7 @@
  <br><br>
  <div class=“parent”>
   <div class="col-12">
-      <button name="button" value="True" class="btn btn--action" onclick="storeTime();this.disabled=true"><br>
+      <button name="button" value="True" class="btn2 btn--action2" onclick="storeTime();this.disabled=true"><br>
         <br><p> If you click: <br><br><br> </p>
           <h4>You: {{ Constants.optionB0}}&pound , Charity: {{ Constants.optionB1}}&pound <br><br><br></h4>
             <br> </button></div>
