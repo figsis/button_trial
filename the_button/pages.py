@@ -102,15 +102,107 @@ class Attention_Survey(Page):
     def before_next_page(self):
         self.player.set_payoffs()
 
+class Survey1(Page):
+    form_model = 'player'
+    form_fields =  ['q0', 'q1', 'q_change']
+
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "ButtonA" and self.player.store_time != 0 and self.participant.vars["payoff1_self"] == 3
+
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoffs3()
+
+
+
+class Survey2(Page):
+    form_model = 'player'
+    form_fields = ['q0','q1','q_nochange']
+
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "ButtonA" and self.player.store_time != 0 and self.participant.vars["payoff1_self"] == 10
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoffs3()
+
+
+class Survey3(Page):
+    form_model = 'player'
+    form_fields = ['q0','q2','q_change']
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "ButtonA" and self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 10
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoffs3()
+
+
+class Survey4(Page):
+    form_model = 'player'
+    form_fields = ['q0','q2','q_nochange']
+
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "ButtonA" and self.player.store_time == 0 and self.participant.vars[
+            "payoff1_self"] == 3
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoffs3()
+
+
+class Survey5(Page):
+    form_model = 'player'
+    form_fields =  ['q0', 'q1',  'q_nochange']
+
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "ButtonB" and self.player.store_time != 0 and self.participant.vars["payoff1_self"] == 3
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoffs3()
+
+
+class Survey6(Page):
+    form_model = 'player'
+    form_fields = ['q0', 'q1', 'q_change']
+
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "ButtonB" and self.player.store_time != 0 and self.participant.vars["payoff1_self"] == 10
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoffs3()
+
+
+class Survey7(Page):
+    form_model = 'player'
+    form_fields = ['q0', 'q2',  'q_nochange']
+
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "ButtonB" and self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 10
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoffs3()
+
+
+class Survey7(Page):
+    form_model = 'player'
+    form_fields = ['q0', 'q2',  'q_change']
+
+    def is_displayed(self):
+        player = self.player
+        return player.treatment == "ButtonB" and self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 3
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoffs3()
+
 
 class Survey(Page):
     form_model = 'player'
     form_fields = []
-
-#    def vars_for_template(self):
- #       return dict(payoff1_self=self.player.participant.vars["payoff1_self"],
-  #                  payoff2_self=self.player.payoff2_self,
-   #                 store_time = self.player.store_time)
 
     def is_displayed(self):
         player = self.player
@@ -153,36 +245,37 @@ class Survey(Page):
 
 class Survey_danat(Page):
     form_model = 'player'
-    form_fields = []
+    form_fields =['q_nochange']
 
-    def get_form_fields(self):
-        if self.participant.vars["treatment"] == "NoButton":
-            if self.participant.vars["task1"] == self.player.secondary_button:
-                return ['q_nochange']
-            elif self.participant.vars["task1"] == self.player.secondary_button:
-                return ['q_change']
-        else:
-            pass
+   # def get_form_fields(self):
+    #    if self.participant.vars["treatment"] == "NoButton":
+    #       if self.participant.vars["task1"] == self.player.secondary_button:
+    #           return ['q_nochange']
+    #       elif self.participant.vars["task1"] == self.player.secondary_button:
+    #           return ['q_change']
+    #   else:
+    #       pass
+
 
     def is_displayed(self):
         player = self.player
-        return player.treatment == "NoButton" #and self.participant.vars["task1"] == self.player.secondary_button
+        return player.treatment == "NoButton" and self.participant.vars["task1"] == self.player.secondary_button
 
     def before_next_page(self):
         self.player.set_bonus()
         self.player.set_payoffsdanat()
 
-    return []
-#class Survey_danatC(Page):
- #   form_model = 'player'
-  #  form_fields = ['q_change']
 
-   # def is_displayed(self):
-    #    return self.player.treatment == "NoButton" and self.participant.vars["task1"] != self.player.secondary_button
+class Survey_danatC(Page):
+    form_model = 'player'
+    form_fields = ['q_change']
 
-    #def before_next_page(self):
-     #   self.player.set_bonus()
-      #  self.player.set_payoff3()
+    def is_displayed(self):
+        return self.player.treatment == "NoButton" and self.participant.vars["task1"] != self.player.secondary_button
+
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoff3()
 
 
 class Comments(Page):
@@ -229,9 +322,15 @@ page_sequence = [
                  task_timed,
                  Error,
                  Attention_Survey,
-                 Survey,
+                 Survey1,
+                 Survey2,
+                 Survey3,
+                 Survey4,
+                 Survey5,
+                 Survey6,
+                 Survey7,
                  Survey_danat,
-               #  Survey_danatC,
+                 Survey_danatC,
                  Comments,
                  Payment
                  ]
