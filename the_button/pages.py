@@ -178,7 +178,7 @@ class Survey_danatC(Page):
     form_fields = ['q_change']
 
     def is_displayed(self):
-        return self.player.treatment == "NoButton" and self.participant.vars["task1"] == self.player.secondary_button
+        return self.player.treatment == "NoButton" and self.participant.vars["task1"] != self.player.secondary_button
 
     def before_next_page(self):
         self.player.set_bonus()
