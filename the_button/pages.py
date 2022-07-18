@@ -92,36 +92,6 @@ class Error(Page):
         )
     pass
 
-
-class Payment(Page):
-    form_model = 'player'
-    form_fields = ['bonus', 'payoff2_self', 'payoff2_charity', 'payoff2_self_danat',
-                    'payoff2_charity_danat', 'payoff3', 'treatment']
-
-    def vars_for_template(self):
-        return dict(
-            payoff_svo=self.player.participant.vars["payoff_svo"],
-            payoff_svo_other=self.player.participant.vars["payoff_svo_other"],
-            payoff2_charity=self.player.payoff2_charity,
-            payoff2_charity_danat=self.player.payoff2_charity_danat,
-            #paid_slider = self.player.participant.vars["paid_slider"],
-            selected=self.player.selected,
-            payoff2_self=self.player.payoff2_self,
-            payoff2_self_danat=self.player.payoff2_self_danat,
-            bonus = self.player.bonus,
-            payoff3 = self.player.payoff3,
-            payoff4 = self.player.payoff4,
-            treatment = self.player.treatment
-        )
-    
-    def js_vars(self):
-        cc_code = self.session.config["cc_code"]
-        link = "https://app.prolific.co/submissions/complete?cc=" + str(cc_code)
-        return dict(
-            completionlink=link
-        )
-    pass
-
 class Attention_Survey(Page):
     form_model = 'player'
     form_fields = ['q_number']
@@ -129,28 +99,18 @@ class Attention_Survey(Page):
     def vars_for_template(self):
         return dict(q_number=self.player.q_number)
 
-    #def before_next_page(self):
-     #   self.player.set_payoffs()
-
     def before_next_page(self):
-        player = self.player
-        if player.treatment == "ButtonA" or player.treatment == "ButtonB":
-            self.player.set_bonus()
-            self.player.set_payoffsdanat()
-            self.player.set_payoffs()
-        else:
-            self.player.set_payoffs()
-
+        self.player.set_payoffs()
 
 
 class Survey(Page):
     form_model = 'player'
     form_fields = []
 
-    def vars_for_template(self):
-        return dict(payoff1_self=self.player.participant.vars["payoff1_self"],
-                    payoff2_self=self.player.payoff2_self,
-                    store_time = self.player.store_time)
+#    def vars_for_template(self):
+ #       return dict(payoff1_self=self.player.participant.vars["payoff1_self"],
+  #                  payoff2_self=self.player.payoff2_self,
+   #                 store_time = self.player.store_time)
 
     def is_displayed(self):
         player = self.player
@@ -183,6 +143,8 @@ class Survey(Page):
             # altruistic button not pressed and altruistic dana (altruistic-selfish)
             elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 3:
                return ['q0', 'q2',  'q_change']
+            else:
+                pass
 
     def before_next_page(self):
         self.player.set_payoffs()
@@ -195,14 +157,17 @@ class Survey_danat(Page):
     form_fields = []
 
     def get_form_fields(self):
-        if self.participant.vars["task1"] == self.player.secondary_button:
-            return ['q_nochange']
-        elif self.participant.vars["task1"] == self.player.secondary_button:
-            return ['q_change']
+        if self.participant.vars["treatment"]=="NoButton":
+            if self.participant.vars["task1"] == self.player.secondary_button:
+                return ['q_nochange']
+            elif self.participant.vars["task1"] == self.player.secondary_button:
+                return ['q_change']
+        else:
+            pass
 
-    def vars_for_template(self):
-        return dict(task1 = self.player.participant.vars["task1"],
-                    secondary_button = self.player.secondary_button)
+    #def vars_for_template(self):
+     #   return dict(task1 = self.player.participant.vars["task1"],
+      #              secondary_button = self.player.secondary_button)
 
     def is_displayed(self):
         player = self.player
@@ -217,6 +182,36 @@ class Comments(Page):
     form_model = 'player'
     form_fields = ['q_feedback', 'q_feedback_pilot']
 
+
+class Payment(Page):
+    form_model = 'player'
+    form_fields = ['bonus', 'payoff2_self', 'payoff2_charity', 'payoff2_self_danat',
+                   'payoff2_charity_danat', 'payoff3', 'treatment']
+
+    def vars_for_template(self):
+        return dict(
+            payoff_svo=self.player.participant.vars["payoff_svo"],
+            payoff_svo_other=self.player.participant.vars["payoff_svo_other"],
+            payoff2_charity=self.player.payoff2_charity,
+            payoff2_charity_danat=self.player.payoff2_charity_danat,
+            # paid_slider = self.player.participant.vars["paid_slider"],
+            selected=self.player.selected,
+            payoff2_self=self.player.payoff2_self,
+            payoff2_self_danat=self.player.payoff2_self_danat,
+            bonus=self.player.bonus,
+            payoff3=self.player.payoff3,
+            payoff4=self.player.payoff4,
+            treatment=self.player.treatment
+        )
+
+    def js_vars(self):
+        cc_code = self.session.config["cc_code"]
+        link = "https://app.prolific.co/submissions/complete?cc=" + str(cc_code)
+        return dict(
+            completionlink=link
+        )
+
+    pass
 
 
 page_sequence = [
