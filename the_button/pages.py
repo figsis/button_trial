@@ -162,8 +162,7 @@ class Survey_danat(Page):
             elif self.participant.vars["task1"] == self.player.secondary_button:
                 return ['q_change']
         else:
-            return []
-
+            pass
 
     def is_displayed(self):
         player = self.player
@@ -173,6 +172,7 @@ class Survey_danat(Page):
         self.player.set_bonus()
         self.player.set_payoffsdanat()
 
+    return []
 #class Survey_danatC(Page):
  #   form_model = 'player'
   #  form_fields = ['q_change']
