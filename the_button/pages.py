@@ -227,8 +227,8 @@ page_sequence = [
                  task_timed,
                  Error,
                  Attention_Survey,
-                 Survey,
-                 Survey_danat,
+                 #Survey,
+                 #Survey_danat,
                  Comments,
                  Payment
                  ]
