@@ -145,7 +145,7 @@ class Attention_Survey(Page):
 
 class Survey(Page):
     form_model = 'player'
-    form_fields = []
+    form_fields = ['q0', 'q2',  'q_nochange']
 
     def vars_for_template(self):
         return dict(payoff1_self=self.player.participant.vars["payoff1_self"],
@@ -156,33 +156,33 @@ class Survey(Page):
         player = self.player
         return player.treatment == "ButtonA" or player.treatment == "ButtonB"
 
-    def get_form_fields(self):
-        if self.player.treatment == "ButtonA":
-            #selfish button pressed but altruistic dana (altruistic-selfish)
-            if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  == 5:
-                return ['q0', 'q1','q_change']
+    #def get_form_fields(self):
+        #   if self.player.treatment == "ButtonA":
+        #   #selfish button pressed but altruistic dana (altruistic-selfish)
+        #   if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  == 5:
+        #       return ['q0', 'q1','q_change']
             #selfish button pressed and selfish dana (selfish-selfish)
-            elif self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==10:
-                return ['q0','q1','q_nochange']
+        #   elif self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==10:
+        #       return ['q0','q1','q_nochange']
             # selfish button not pressed and selfish dana (selfish-altruistic)
-            elif self.player.store_time == 0 and self.participant.vars["payoff1_self"]  ==10:
-                return ['q0','q2','q_change']
+        #   elif self.player.store_time == 0 and self.participant.vars["payoff1_self"]  ==10:
+        #       return ['q0','q2','q_change']
             # selfish button not pressed and altruistic dana (altruistic-altruistic)
-            elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 5:
-                return ['q0','q2','q_nochange']
-        if self.player.treatment == "ButtonB":
+        #   elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 5:
+        #       return ['q0','q2','q_nochange']
+        #if self.player.treatment == "ButtonB":
             #altruistic button pressed and altruistic dana (altruistic-altruistic)
-            if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  == 5:
-                return ['q0', 'q1',  'q_nochange']
+        #   if self.player.store_time != 0 and self.participant.vars["payoff1_self"]  == 5:
+        #       return ['q0', 'q1',  'q_nochange']
             #altruistic button pressed and selfish dana (selfish-altruistic)
-            elif self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==10:
-                return ['q0', 'q1', 'q_change']
+        #   elif self.player.store_time != 0 and self.participant.vars["payoff1_self"]  ==10:
+        #       return ['q0', 'q1', 'q_change']
             #altruistic button not pressed and selfish dana (selfish-selfish)
-            elif self.player.store_time == 0 and self.participant.vars["payoff1_self"]  ==10:
-                return ['q0', 'q2',  'q_nochange']
+        #   elif self.player.store_time == 0 and self.participant.vars["payoff1_self"]  ==10:
+        #       return ['q0', 'q2',  'q_nochange']
             # altruistic button not pressed and altruistic dana (altruistic-selfish)
-            elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 5:
-                return ['q0', 'q2',  'q_change']
+            #elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 5:
+             #   return ['q0', 'q2',  'q_change']
 
     def before_next_page(self):
         self.player.set_payoffs()
@@ -192,13 +192,13 @@ class Survey(Page):
 
 class Survey_danat(Page):
     form_model = 'player'
-    form_fields = []
+    form_fields = ['q0', 'q2',  'q_nochange']
 
-    def get_form_fields(self):
-        if self.participant.vars["task1"] == self.player.secondary_button:
-            return ['q_nochange']
-        elif self.participant.vars["task1"] == self.player.secondary_button:
-            return ['q_change']
+    #def get_form_fields(self):
+     #   if self.participant.vars["task1"] == self.player.secondary_button:
+      #      return ['q_nochange']
+      #  elif self.participant.vars["task1"] == self.player.secondary_button:
+       #     return ['q_change']
 
     def vars_for_template(self):
         return dict(task1 = self.player.participant.vars["task1"],
