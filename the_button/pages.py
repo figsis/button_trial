@@ -145,6 +145,7 @@ class Survey(Page):
                return ['q0', 'q2',  'q_change']
             else:
                 pass
+        return []
 
     def before_next_page(self):
         self.player.set_payoffs()
