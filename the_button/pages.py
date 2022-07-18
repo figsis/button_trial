@@ -137,9 +137,6 @@ class Attention_Survey(Page):
             self.player.set_payoffs()
         else:
             self.player.set_payoffs()
-            self.player.set_bonus()
-            self.player.set_payoff3()
-
 
 
 
@@ -203,13 +200,13 @@ class Survey_danat(Page):
     def vars_for_template(self):
         return dict(task1 = self.player.participant.vars["task1"],
                     secondary_button = self.player.secondary_button)
-
-
     def is_displayed(self):
         player = self.player
         return player.treatment == "NoButton"
 
-
+    def before_next_page(self):
+        self.player.set_bonus()
+        self.player.set_payoff3()
 
 
 class Comments(Page):
@@ -227,7 +224,7 @@ page_sequence = [
                  Error,
                  Attention_Survey,
                  #Survey,
-                 #Survey_danat,
+                 Survey_danat,
                  Comments,
                  Payment
                  ]
