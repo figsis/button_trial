@@ -86,7 +86,7 @@ class Player(BasePlayer):
     q2 = models.LongStringField(label='Why did you decide not to press the button?')
     #Why did you change/did not change your final decision? In all treatments every time a discrepancy between decisions.
     q_change = models.LongStringField(label='Why did you change your mind when you were given more time to think about the decision in Task 3?')
-    q_nochange = models.LongStringField(label='Why did not you change your mind when you were given more time to think about the decision in Task 3?')
+    q_nochange = models.LongStringField(label='Why did you not change your mind when you were given more time to think about the decision in Task 3?')
     #What was the highest number that you saw appear on screen?
     q_number = models.IntegerField(label="What was the highest number that you saw appearing on screen?")
     selected = models.IntegerField()
@@ -109,8 +109,8 @@ class Player(BasePlayer):
                 self.payoff2_self = Constants.optionA[0]
                 self.payoff2_charity = Constants.optionA[1]
             else: #not pressing the button yields the selfish action
-                self.payoff2_self = Constants.optionA[0]
-                self.payoff2_charity = Constants.optionA[1]
+                self.payoff2_self = Constants.optionB[0]
+                self.payoff2_charity = Constants.optionB[1]
         elif self.treatment == "NoButton":
             if self.secondary_button == "A":
                 self.payoff2_self_danat = 10
