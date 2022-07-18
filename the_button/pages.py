@@ -143,8 +143,6 @@ class Survey(Page):
             # altruistic button not pressed and altruistic dana (altruistic-selfish)
             elif self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 3:
                return ['q0', 'q2',  'q_change']
-            else:
-                pass
         return []
 
     def before_next_page(self):
