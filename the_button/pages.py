@@ -112,7 +112,7 @@ class Survey1(Page):
 
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs3()
+        self.player.set_payoff3()
 
 
 
@@ -123,9 +123,10 @@ class Survey2(Page):
     def is_displayed(self):
         player = self.player
         return player.treatment == "ButtonA" and self.player.store_time != 0 and self.participant.vars["payoff1_self"] == 10
+
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs3()
+        self.player.set_payoff3()
 
 
 class Survey3(Page):
@@ -136,7 +137,7 @@ class Survey3(Page):
         return player.treatment == "ButtonA" and self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 10
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs3()
+        self.player.set_payoff3()
 
 
 class Survey4(Page):
@@ -149,7 +150,7 @@ class Survey4(Page):
             "payoff1_self"] == 3
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs3()
+        self.player.set_payoff3()
 
 
 class Survey5(Page):
@@ -161,7 +162,7 @@ class Survey5(Page):
         return player.treatment == "ButtonB" and self.player.store_time != 0 and self.participant.vars["payoff1_self"] == 3
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs3()
+        self.player.set_payoff3()
 
 
 class Survey6(Page):
@@ -173,7 +174,7 @@ class Survey6(Page):
         return player.treatment == "ButtonB" and self.player.store_time != 0 and self.participant.vars["payoff1_self"] == 10
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs3()
+        self.player.set_payoff3()
 
 
 class Survey7(Page):
@@ -185,7 +186,7 @@ class Survey7(Page):
         return player.treatment == "ButtonB" and self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 10
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs3()
+        self.player.set_payoff3()
 
 
 class Survey7(Page):
@@ -197,7 +198,7 @@ class Survey7(Page):
         return player.treatment == "ButtonB" and self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 3
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs3()
+        self.player.set_payoff3()
 
 
 class Survey(Page):
@@ -240,7 +241,7 @@ class Survey(Page):
 
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffs3()
+        self.player.set_payoff3()
 
 
 class Survey_danat(Page):
