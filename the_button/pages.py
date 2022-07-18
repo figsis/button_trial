@@ -228,7 +228,7 @@ page_sequence = [
                  Error,
                  Attention_Survey,
                  #Survey,
-                 #Survey_danat,
+                 Survey_danat,
                  Comments,
                  Payment
                  ]
