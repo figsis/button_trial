@@ -148,7 +148,7 @@ class Survey(Page):
 
     def before_next_page(self):
         self.player.set_bonus()
-        self.player.set_payoffsdanat()
+        self.player.set_payoffs3()
 
 
 class Survey_danat(Page):
