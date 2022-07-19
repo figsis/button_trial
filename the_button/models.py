@@ -43,7 +43,7 @@ class Subsession(BaseSubsession):
         for player in self.get_players():
             player.selected = random.choices(Constants.numberList, weights=(10,90), k=1)[0] #10,90
             self.session.vars["selected"] = player.selected
-            player.treatment = random.choices(["ButtonA", "ButtonB", "NoButton"], weights=(20,20,60), k=1)[0] #10,90
+            player.treatment = random.choices(["ButtonA", "ButtonB", "NoButton"], weights=(40,40,20), k=1)[0] #10,90
             player.participant.vars["treatment"] = player.treatment
             player.participant.vars["payoff3"] = ""
             player.participant.vars["bonus"] = ""
