@@ -42,7 +42,7 @@ class Button2(Page):
 
     def is_displayed(self):
         player = self.player
-        return  player.treatment == "ButtonB"
+        return player.treatment == "ButtonB"
 
 #class ButtonClicked(Page):
     #   form_model = 'player'
@@ -164,11 +164,12 @@ class Survey4(Page):
 
 class Survey5(Page):
     form_model = 'player'
-    form_fields =  ['q0', 'q1',  'q_nochange']
+    form_fields = ['q0', 'q1',  'q_nochange']
 
     def is_displayed(self):
         player = self.player
         return player.treatment == "ButtonB" and self.player.store_time != 0 and self.participant.vars["payoff1_self"] == 3
+
     def before_next_page(self):
         self.player.set_bonus()
         self.player.set_payoff3()
@@ -181,6 +182,7 @@ class Survey6(Page):
     def is_displayed(self):
         player = self.player
         return player.treatment == "ButtonB" and self.player.store_time != 0 and self.participant.vars["payoff1_self"] == 10
+
     def before_next_page(self):
         self.player.set_bonus()
         self.player.set_payoff3()
@@ -198,13 +200,14 @@ class Survey7(Page):
         self.player.set_payoff3()
 
 
-class Survey7(Page):
+class Survey8(Page):
     form_model = 'player'
     form_fields = ['q0', 'q2',  'q_change']
 
     def is_displayed(self):
         player = self.player
         return player.treatment == "ButtonB" and self.player.store_time == 0 and self.participant.vars["payoff1_self"] == 3
+
     def before_next_page(self):
         self.player.set_bonus()
         self.player.set_payoff3()
@@ -341,6 +344,7 @@ page_sequence = [
                  Survey5,
                  Survey6,
                  Survey7,
+                 Survey8,
                  Survey_danat,
                  Survey_danatC,
                  Comments,
