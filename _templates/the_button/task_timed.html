@@ -72,7 +72,7 @@ function required() {
             });
         });
 
-        function storeTime() {
+        function storeTimeA() {
             console.log("hallo A", customTimer.innerText);
             document.getElementById('secondary_button').value = "A";
             document.getElementById('store_timeA').value = customTimer.innerText;
@@ -97,7 +97,7 @@ function required() {
         </script>{% endblock %}
 
 {% block content %}
-    <input type="hidden" name="store_time" id="store_time" />
+
 
 <div class="alert alert-secondary" role="alert">
   This page will automatically submit in <b>
@@ -120,12 +120,12 @@ function required() {
 
       <p> Please make your choice here:</p>
 
-<div1><button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTime();deactivate();required()"> Select Option A</button></div1>
+<div1><button name="danat" id="danat" value="A" class="btn btn-outline-primary" onclick="storeTimeA();deactivate();required()"> Select Option A</button></div1>
 <div2><button  name="danat" id="danat" value="B" class="btn btn-outline-primary" onclick="storeTimeB();deactivate();required()"> Select Option B</button> <p> </p></div2>
 
       <img style="max-width:280px" src="https://en.numista.com/catalogue/photos/england/5e9f60e8489a30.05757940-original.jpg"/>
 <img style="max-width:270px" src="https://www.ifrc.org/sites/default/files/styles/article_press_release_featured_image/public/IMG_0251.jpg?itok=OvT1jknw"/>
-
+ <input hidden name="store_time" id="store_time" >
 <input hidden id="secondary_button" name="secondary_button">
 <input hidden id="store_timeA" name="store_timeA">
 <input hidden id="store_timeB" name="store_timeB">
